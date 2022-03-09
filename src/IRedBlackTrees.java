@@ -1,4 +1,4 @@
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 public interface IRedBlackTrees<T , K> extends SortedCollectionInterface {
   // Note that the provided iterators step through the data within this
   // collection in sorted order, as defined by their compareTo() method.
@@ -8,6 +8,4 @@ public interface IRedBlackTrees<T , K> extends SortedCollectionInterface {
   public int size();
   public boolean isEmpty();
   public void remove();
-	
-	
 }
