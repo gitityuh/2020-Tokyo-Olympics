@@ -165,11 +165,17 @@ class AlgorithmEngineerTests {
         //Single right rotation about root
         int red = 0;
         int black = 1;
+
+        AlgoEngrCountry france = new AlgoEngrCountry(4);
+        AlgoEngrCountry USA = new AlgoEngrCountry(10);
+        AlgoEngrCountry sweeden = new AlgoEngrCountry(6);
+
+
         RedBlackTree RBT = new RedBlackTree();
 
-        RBT.insert(8);
-        RBT.insert(6);
-        RBT.insert(4);
+        RBT.insert(USA.getGoldMedals());
+        RBT.insert(sweeden.getGoldMedals());
+        RBT.insert(france.getGoldMedals());
 
         String result = RBT.toLevelOrderString();
 

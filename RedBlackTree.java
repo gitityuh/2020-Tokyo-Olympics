@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
  * a regular binary search tree, and its toString method to display a level-order
  * traversal of the tree.
  */
-public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionInterface<T> {
+public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionInterface<T>, IRedBlackTrees<T> {
 
     /**
      * This class represents a node holding a single value within a binary tree
