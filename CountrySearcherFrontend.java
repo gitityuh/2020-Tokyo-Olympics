@@ -43,12 +43,26 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
    */
   @Override public void runCommandLoop() {
     String commandLine = scanner.nextLine().trim();
-
-    if (commandLine.charAt(0) == '1') {
-      countriesByMedal();
-    }
-    else if (commandLine.charAt(0) == '2') {
-      displayCountries();
+    char command = commandLine.charAt(0);
+    // chooses method to call by command
+    switch (command) {
+      case '1':
+        countriesByMedal();
+        break;
+      case '2':
+        displayCommandMenu();
+        break;
+      case '3':
+        medalsByCountry();
+      case '4':
+        filterByContinent();
+      case '5':
+        return;
+      // if all cases fail, repeat command loop
+      default:
+        System.out.println("Invalid Command!");
+        displayCommandMenu();
+        runCommandLoop();
     }
   }
 
@@ -59,7 +73,14 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
    * prints command options to System.out
    */
   @Override public void displayCommandMenu() {
-
+    System.out.println(
+        "Command Menu:\n" +
+        "   1) Countries by Medals\n" +
+        "   2) Countries in Alphabetical Order\n" +
+        "   3) Medals by Country\n" +
+        "   4) Filter by Continent\n" +
+        "   3) Quit\n"
+    );
   }
 
   /**
@@ -67,7 +88,9 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
    * @param countries
    */
   @Override public void displayCountries(List<ICountry> countries) {
-
+    for (ICountry country : countries) {
+      System.out.println(country.getName());
+    }
   }
 
   /**
