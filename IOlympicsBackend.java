@@ -6,7 +6,7 @@ import java.util.List;
  * the Olympics app.
  */
 public interface IOlympicsBackend {
-    public void addCountry(ICountry country); // adds country to backend database
+    public void addCountry(IOlympic country); // adds country to backend database
 
     public int getNumberOfCountries();
     
@@ -16,9 +16,9 @@ public interface IOlympicsBackend {
     public boolean getMedalFilter(String medal);
     public void toggleMedalFilter(String medal);
 
-    // These methods return either a list of ICountries or an ICountry
-    public ICountry searchByName(String name);
-    public List<ICountry> outputByTotalMedals();
-    public List<ICountry> outputByTypeOfMedals(String medalType);
+    // These methods return either a list of IOlympics or an IOlympic
+    public IOlympic searchByName(String name);
+    public List<IOlympic> outputByTotalMedals();
+    public List<IOlympic> outputByTypeOfMedals(String medalType);
 }
 
