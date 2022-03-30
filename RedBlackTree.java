@@ -845,28 +845,19 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
     }
 
 
-
-
-    private ArrayList<T> inOrderTraversal(Node<T> node){
-
-
-
-        if (node == null)
-            return countryList;
-
-        /* first recur on left child */
-        inOrderTraversal(node.leftChild);
-
-        /* then print the data of node */
-        countryList.add(node.data);
-        System.out.print(node.data + " ");
-
-        /* now recur on right child */
-        inOrderTraversal(node.rightChild);
-
-
+    public ArrayList<T> storeKeyValues(Node<T> root) {
+        treeTravel(root);
         return countryList;
-    }//end in order traversal method
+    }
+
+
+    private void treeTravel(Node<T> node) {
+        if (node != null) {
+            treeTravel(node.leftChild);
+            countryList.add(node.data);
+            treeTravel(node.rightChild);
+        }
+    }
 
 
     /**
