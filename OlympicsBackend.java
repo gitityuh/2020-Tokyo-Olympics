@@ -6,7 +6,7 @@ public class OlympicsBackend implements ICountrySearcherBackend {
     private RedBlackTree<ICountry> goldMedalTree;
     private RedBlackTree<ICountry> silverMedalTree;
     private RedBlackTree<ICountry> bronzeMedalTree;
-    private RedBlackTree<ICountry> totalMedalTree;
+    //private RedBlackTree<ICountry> totalMedalTree;
     private RedBlackTree<ICountry> countryNameTree;
     private boolean africaToggle = true;
     private boolean asiaToggle = true;
@@ -21,28 +21,28 @@ public class OlympicsBackend implements ICountrySearcherBackend {
         goldMedalTree.insert(country, country.getGoldMedals());
         silverMedalTree.insert(country, country.getSilverMedals());
         bronzeMedalTree.insert(country, country.getBronzeMedals());
-        totalMedalTree.insert(country, country.getTotalMedals());
+        //totalMedalTree.insert(country, country.getTotalMedals());
         countryNameTree.insert(country, country.getName());
     }
 
     //I don't think this method is ever used
-    @Override public int getNumberOfCountries() {
+    //@Override public int getNumberOfCountries() {
 
-        return 0;
-    }
+      //  return 0;
+   // }
 
     //this is method is also never used
-    @Override public void setMedalType(String medal, boolean filter) {
+   // @Override public void setMedalType(String medal, boolean filter) {
 
-    }
+    //}
 
-    @Override public boolean getMedalFilter(String medal) {
-        return false;
-    }
+    //@Override public boolean getMedalFilter(String medal) {
+    //    return false;
+    //}
 
-    @Override public void toggleMedalFilter(String medal) {
+    //@Override public void toggleMedalFilter(String medal) {
 
-    }
+    //}
 
     @Override public ICountry searchByName(String name) {
         ArrayList<ICountry> countries = countryNameTree.storeKeyValues(countryNameTree.root);
@@ -57,12 +57,12 @@ public class OlympicsBackend implements ICountrySearcherBackend {
     }//end search by name
 
     //this is not used
-    @Override public List<ICountry> outputByTotalMedals() {
-        ArrayList<ICountry> countriesByTotalMedals =
-            totalMedalTree.storeKeyValues(totalMedalTree.root);
+   // @Override public List<ICountry> outputByTotalMedals() {
+    //    ArrayList<ICountry> countriesByTotalMedals =
+     //       totalMedalTree.storeKeyValues(totalMedalTree.root);
 
-        return null;
-    }
+      //  return null;
+    //}
 
     @Override public List<ICountry> outputByTypeOfMedals(String medalType) {
 
