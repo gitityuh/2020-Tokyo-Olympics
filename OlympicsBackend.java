@@ -1,7 +1,8 @@
 import java.util.List;
 
-public class OlympicsBackend implements IOlympicsBackend{
-    @Override public void addCountry(IOlympic country) {
+public class OlympicsBackend implements ICountrySearcherBackend{
+
+    @Override public void addCountry(ICountry country) {
 
     }
 
@@ -21,15 +22,15 @@ public class OlympicsBackend implements IOlympicsBackend{
 
     }
 
-    @Override public IOlympic searchByName(String name) {
+    @Override public ICountry searchByName(String name) {
         return null;
     }
 
-    @Override public List<IOlympic> outputByTotalMedals() {
+    @Override public List<ICountry> outputByTotalMedals() {
         return null;
     }
 
-    @Override public List<IOlympic> outputByTypeOfMedals(String medalType) {
+    @Override public List<ICountry> outputByTypeOfMedals(String medalType) {
         return null;
     }
 }

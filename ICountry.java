@@ -5,17 +5,17 @@
  */
 public interface ICountry extends Comparable<ICountry> {
 
-	// constructor args (String name, int goldMedal, int silverMedal, int bronzeMedal,
-	// int totalMedals, int rank, String continent)
+    // constructor args (String name, int goldMedal, int silverMedal, int bronzeMedal,
+    // int totalMedals, int rank, String continent)
 
-	String getName(); //
-	int getGoldMedals();
-	int getSilverMedals();
-	int getBronzeMedals();
-	int getTotalMedals();
-	int getRank();
-	String getContinent();
+    String getName(); //
+    int getGoldMedals();
+    int getSilverMedals();
+    int getBronzeMedals();
+    int getTotalMedals();
+    int getRank();
+    String getContinent();
 
-	// compareTo() method supports sorting these objects by name and number of total medals
+    // compareTo() method supports sorting these objects by name and number of total medals
 
 }
