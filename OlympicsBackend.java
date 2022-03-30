@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * this class implements the IcountrySearcherBackend module
+ * and uses its to create a class that utilizes Red black trees to sort through data on country's
+ * olympic performances
+ */
 public class OlympicsBackend implements ICountrySearcherBackend {
     private RedBlackTree<ICountry> goldMedalTree;
     private RedBlackTree<ICountry> silverMedalTree;
@@ -16,7 +21,11 @@ public class OlympicsBackend implements ICountrySearcherBackend {
     private boolean saToggle = true;
 
 
-
+    /**
+     * this country is inserted into the redblack trees and is compared to other countries based
+     * on the type of medal or alphabetically
+     * @param country
+     */
     @Override public void addCountry(ICountry country) {
         goldMedalTree.insert(country, country.getGoldMedals());
         silverMedalTree.insert(country, country.getSilverMedals());
@@ -35,17 +44,30 @@ public class OlympicsBackend implements ICountrySearcherBackend {
    // @Override public void setMedalType(String medal, boolean filter) {
 
     //}
-
+    //never used
     //@Override public boolean getMedalFilter(String medal) {
     //    return false;
     //}
-
+    //never used
     //@Override public void toggleMedalFilter(String medal) {
 
     //}
 
+    /**
+     * this method gets the info from theRedBlackTree removes continents that are filtered off
+     * and returns the country whose name was provided if it within the avaiable countries
+     * otherwise returns null
+     * @param name
+     * @return
+     */
     @Override public ICountry searchByName(String name) {
+        //for now the contains method within the IRedBlackTrees interface only returns a boolean if
+        // whether, the object exists within the red black tree, can change this to method to return
+        //the value if it contains next week when mergeing next week, which might be a good idea
         ArrayList<ICountry> countries = countryNameTree.storeKeyValues(countryNameTree.root);
+        //another note the method above storeKeyValues, I added it to my version of the red black tree
+        //we can just give it to our algorithm engineer after merging
+        //it returns a sorted list from the red black tree of countries
         countries = removeFiltered(countries);
         for (int i = 0; i < countries.size(); i++) {
             if (countries.get(i).getName().toLowerCase() == name.toLowerCase()) {
@@ -65,6 +87,13 @@ public class OlympicsBackend implements ICountrySearcherBackend {
       //  return null;
     //}
 
+    /**
+     * returns a list of the country's in sorted order based on the medal type
+     * while also removing filtered continents
+     * returns null if the medal type is not valid
+     * @param medalType
+     * @return
+     */
     @Override public List<ICountry> outputByTypeOfMedals(String medalType) {
 
         if(medalType.toLowerCase().equals("gold")){
@@ -86,12 +115,22 @@ public class OlympicsBackend implements ICountrySearcherBackend {
 
     }
 
+    /**
+     * returns a list of countries with the contents filtered to match the continet filter sorted
+     * by alphabetical names
+     * @return
+     */
     @Override public List<ICountry> outputByAlphabeticalName() {
         ArrayList<ICountry> alphabeticalName = countryNameTree.storeKeyValues(countryNameTree.root);
         alphabeticalName = removeFiltered(alphabeticalName);
         return alphabeticalName;
     }
 
+    /**
+     * toggles the boolean values of the continentFilters
+     *
+     * @param number
+     */
     @Override public void toggleContinentFilter(Integer number) {
         if(number == 1){
             africaToggle = !africaToggle;
@@ -110,6 +149,11 @@ public class OlympicsBackend implements ICountrySearcherBackend {
         }
     }//end toggle content filters
 
+    /**
+     * removes all continents that are toggled off from the list of countries from a red black tree
+     * @param countries
+     * @return
+     */
     public ArrayList<ICountry> removeFiltered(ArrayList<ICountry> countries){
         if(africaToggle == false){
             for(int i = 0; i < countries.size(); i ++){
