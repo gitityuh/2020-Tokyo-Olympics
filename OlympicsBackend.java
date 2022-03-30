@@ -46,8 +46,9 @@ public class OlympicsBackend implements ICountrySearcherBackend {
 
     @Override public ICountry searchByName(String name) {
         ArrayList<ICountry> countries = countryNameTree.storeKeyValues(countryNameTree.root);
+        countries = removeFiltered(countries);
         for (int i = 0; i < countries.size(); i++) {
-            if (countries.get(i).getName() == name) {
+            if (countries.get(i).getName().toLowerCase() == name.toLowerCase()) {
                 return countries.get(i);
             }
         }
@@ -91,7 +92,7 @@ public class OlympicsBackend implements ICountrySearcherBackend {
         return alphabeticalName;
     }
 
-    @Override public void toggleContenentFilter(Integer number) {
+    @Override public void toggleContinentFilter(Integer number) {
         if(number == 1){
             africaToggle = !africaToggle;
         }else if(number == 2){

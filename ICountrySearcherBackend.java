@@ -21,6 +21,6 @@ public interface ICountrySearcherBackend {
     //public List<ICountry> outputByTotalMedals();
     public List<ICountry> outputByTypeOfMedals(String medalType);
     public List<ICountry> outputByAlphabeticalName();
-    public void toggleContenentFilter(Integer number);
+    public void toggleContinentFilter(Integer number);
 }
 
