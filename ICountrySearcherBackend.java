@@ -20,5 +20,6 @@ public interface ICountrySearcherBackend {
     public ICountry searchByName(String name);
     public List<ICountry> outputByTotalMedals();
     public List<ICountry> outputByTypeOfMedals(String medalType);
+    public List<ICountry> outputByAlphabeticalName();
 }
 
