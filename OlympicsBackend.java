@@ -1,6 +1,7 @@
 import java.util.List;
 
 public class OlympicsBackend implements ICountrySearcherBackend{
+    //private
 
     @Override public void addCountry(ICountry country) {
 
