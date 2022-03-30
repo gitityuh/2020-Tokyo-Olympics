@@ -2,16 +2,16 @@ import java.util.List;
 
 /**
  * Instances of classes that implement this interface can be used to drive a
- * console-based text user interface for the OlympicSearcher App.
+ * console-based text user interface for the CountrySearcher App.
  */
-public interface IOlympicSearcherFrontend {
+public interface ICountrySearcherFrontend {
 
-    // constructor args (IOlympicSearcherBackend) reads input from System.in
-    // constructor args (String, IOlympicSearcherBackend) reads input from String
+    // constructor args (ICountrySearcherBackend) reads input from System.in
+    // constructor args (String, ICountrySearcherBackend) reads input from String
 
     /**
      * This method drives the entire read, eval, print loop (repl) for the
-     * Olympic Search App.  This loop will continue to run until the user
+     * Country Search App.  This loop will continue to run until the user
      * explicitly enters the quit command.
      */
     void runCommandLoop();
@@ -21,7 +21,7 @@ public interface IOlympicSearcherFrontend {
 
     public void displayCommandMenu(); // prints command options to System.out
 
-    public void displayCountries(List<IOlympic> countries); // displays a list of countries
+    public void displayCountries(List<ICountry> countries); // displays a list of countries
 
     public void countriesByMedal(); // reads word from System.in, displays results
 
