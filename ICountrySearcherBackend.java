@@ -9,7 +9,6 @@ public interface ICountrySearcherBackend {
     public void addCountry(ICountry country); // adds country to backend database
 
     //public int getNumberOfCountries();
-
     // These methods set the medal filters before calling the search and output methods
     // (all medals are included in the search results by default)
     //public void setMedalType(String medal, boolean filter);
@@ -22,5 +21,6 @@ public interface ICountrySearcherBackend {
     List<ICountry> outputByTypeOfMedals(String medalType);
     List<ICountry> outputByAlphabeticalName();
     void toggleContinentFilter(Integer number);
+
 }
 
