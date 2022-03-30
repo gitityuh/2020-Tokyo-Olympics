@@ -1,10 +1,17 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class OlympicsBackend implements ICountrySearcherBackend{
-    //private
+    private RedBlackTree<ICountry> goldMedalTree;
+    private RedBlackTree<ICountry> silverMedalTree;
+    private RedBlackTree<ICountry> bronzeMedalTree;
+    private RedBlackTree<ICountry> countryNameTree;
 
     @Override public void addCountry(ICountry country) {
-
+        goldMedalTree.insert(country,country.getGoldMedals());
+        silverMedalTree.insert(country,country.getSilverMedals());
+        bronzeMedalTree.insert(country,country.getBronzeMedals());
+        countryNameTree.insert(country,country.getName());
     }
 
     @Override public int getNumberOfCountries() {
@@ -27,11 +34,24 @@ public class OlympicsBackend implements ICountrySearcherBackend{
         return null;
     }
 
-    @Override public List<ICountry> outputByTotalMedals() {
+    @Override public List<ICountry> outputByTotalMedals()
+    {
+
         return null;
     }
 
     @Override public List<ICountry> outputByTypeOfMedals(String medalType) {
         return null;
     }
+
+
+    //gold
+    //silver
+    //bronze
+    //total medals
+    //alphabetical name
+
+
+
+
 }
