@@ -50,7 +50,7 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
         countriesByMedal();
         break;
       case '2':
-        displayCommandMenu();
+        displayCountries();
         break;
       case '3':
         medalsByCountry();
@@ -84,8 +84,8 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
   }
 
   /**
-   * displays a list of countries
-   * @param countries
+   * displays a list of countries sorted alphabetically
+   * @param countries list of countries in Olympic
    */
   @Override public void displayCountries(List<ICountry> countries) {
     for (ICountry country : countries) {
@@ -97,7 +97,7 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
    * reads word from System.in, displays results
    */
   @Override public void countriesByMedal() {
-
+    ICountry country = backend.searchByName("Canada");
   }
 
   /**
