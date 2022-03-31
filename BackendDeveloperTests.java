@@ -90,12 +90,13 @@ public class BackendDeveloperTests {
         backend.addCountry(country1);
         backend.addCountry(country2);
         backend.countryNameTree.setRoot(country1);
-        backend.countryNameTree.setRootleft(country2);
+        backend.countryNameTree.setRootRight(country2);
         List<ICountry> countriesAlphabetical = backend.outputByAlphabeticalName();
-        ICountry country = backend.searchByName("north american country");
+       // System.out.println(countriesAlphabetical.get(1).getName());
+        ICountry country = backend.searchByName("North American Country");
         assertEquals(country1, countriesAlphabetical.get(0));
         assertEquals(country,countriesAlphabetical.get(1));
-    }//end test4
+    }//end test5
 
 
 
@@ -106,6 +107,7 @@ public class BackendDeveloperTests {
         test2();
         test3();
         test4();
+        test5();
     }
 
     public void insert(Object t, Object b){

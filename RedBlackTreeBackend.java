@@ -38,6 +38,7 @@ public class RedBlackTreeBackend<T extends Comparable<T>>
 
 
     public ArrayList<T> storeKeyValues(RedBlackTreeBackend.Node<T> root) {
+        countryList = new ArrayList<>();
         treeTravel(root);
         return countryList;
     }
