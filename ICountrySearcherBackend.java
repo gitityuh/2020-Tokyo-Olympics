@@ -2,10 +2,10 @@ import java.util.List;
 
 /**
  * An instance of a class that implements the following interface can be used to
- * sort and search the database of countries's 2020 Tokyo Olympic medals within
- * the Olympics app.
+ * sort and search the database of countries's 2020 Tokyo Country medals within
+ * the Countrys app.
  */
-public interface IOlympicsBackend {
+public interface ICountrySearcherBackend {
     public void addCountry(ICountry country); // adds country to backend database
 
     public int getNumberOfCountries();
@@ -16,7 +16,7 @@ public interface IOlympicsBackend {
     public boolean getMedalFilter(String medal);
     public void toggleMedalFilter(String medal);
 
-    // These methods return either a list of ICountries or an ICountry
+    // These methods return either a list of ICountrys or an ICountry
     public ICountry searchByName(String name);
     public List<ICountry> outputByTotalMedals();
     public List<ICountry> outputByTypeOfMedals(String medalType);
