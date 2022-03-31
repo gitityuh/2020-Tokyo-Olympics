@@ -10,7 +10,7 @@ public class BackendDeveloperTests {
      * test to see if the tree can retrieve countries based on gold medals the insert method relies on the AlgoEngineer
      * code so for now it is hardcoded
      */
-    @Test private static void test1() {
+    @Test public void test1() {
         OlympicsBackend backend = new OlympicsBackend();
         CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
         CountryBackend country2 =
@@ -27,7 +27,7 @@ public class BackendDeveloperTests {
      * test to see if the backend can retrieve silver medal countries in correct order
      * the insert is hard coded
      */
-    @Test private static void test2() {
+    @Test public void test2() {
         OlympicsBackend backend = new OlympicsBackend();
         CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
         CountryBackend country2 = new CountryBackend(10, 1, 2, "asia", "Asian Country");
@@ -45,7 +45,7 @@ public class BackendDeveloperTests {
      * items are compared it will switch to alphabetical order for countries with the same medal
      * therefore in this case African country should be the root
      */
-    @Test private static void test3() {
+    @Test public  void test3() {
         OlympicsBackend backend = new OlympicsBackend();
         CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
         CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "North American Country");
@@ -61,7 +61,7 @@ public class BackendDeveloperTests {
      * test the continent filter should only return North american continent
      *
      */
-    @Test private static void test4() {
+    @Test public void test4() {
         OlympicsBackend backend = new OlympicsBackend();
         CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
         CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "North American Country");
@@ -83,7 +83,7 @@ public class BackendDeveloperTests {
      * and if the output by Aplhabetical works
      *
      */
-    @Test private static void test5() {
+    @Test public void test5() {
         OlympicsBackend backend = new OlympicsBackend();
         CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
         CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "North American Country");
@@ -103,11 +103,7 @@ public class BackendDeveloperTests {
 
 
     public static void main(String[] args) {
-        test1();
-        test2();
-        test3();
-        test4();
-        test5();
+
     }
 
     public void insert(Object t, Object b){
