@@ -1,4 +1,4 @@
-runTests: BackendDeveloperTestsCompile
+runTests: BackendDeveloperTestCompile
 	java -jar junit5.jar -- class-path . --select-class BackendDeveloperTests
 
 
