@@ -66,13 +66,14 @@ public class OlympicsBackend implements ICountrySearcherBackend {
         //for now the contains method within the IRedBlackTrees interface only returns a boolean if
         // whether, the object exists within the red black tree, can change this to method to return
         //the value if it contains next week when mergeing next week, which might be a good idea
+
         ArrayList<ICountry> countries = countryNameTree.storeKeyValues(countryNameTree.root);
         //another note the method above storeKeyValues, I added it to my version of the red black tree
         //we can just give it to our algorithm engineer after merging
         //it returns a sorted list from the red black tree of countries
         countries = removeFiltered(countries);
         for (int i = 0; i < countries.size(); i++) {
-            if (countries.get(i).getName().toLowerCase() == name.toLowerCase()) {
+            if (countries.get(i).getName().toLowerCase() .equals(name.toLowerCase())) {
                 return countries.get(i);
             }
         }
