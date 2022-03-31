@@ -20,7 +20,7 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
   public CountrySearcherFrontend(ICountrySearcherBackend backend) {
     scanner = new Scanner(System.in);
     this.backend = backend;
-    System.out.println("Welcome to the Show Searcher App!\n" +
+    System.out.println("Welcome to the Country Searcher App!\n" +
         "=================================");
     displayCommandMenu();
 //    runCommandLoop();
@@ -34,7 +34,7 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
   public CountrySearcherFrontend(ICountrySearcherBackend backend, String input) {
     scanner = new Scanner(input);
     this.backend = backend;
-    System.out.println("Welcome to the Show Searcher App!\n" +
+    System.out.println("Welcome to the Country Searcher App!\n" +
         "=================================");
     displayCommandMenu();
   }
@@ -169,12 +169,12 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
 //    boolean[] continentToggles = {false, true, true, true, true, true, true};
 
     System.out.println("Continents:\n" +
-        "   1) " + continentStrings[1] + " Africa" +
-        "   2) " + continentStrings[2] + " Asia" +
-        "   3) " + continentStrings[3] + " Oceania" +
-        "   4) " + continentStrings[4] + " Europe" +
-        "   5) " + continentStrings[5] + " North America" +
-        "   6) " + continentStrings[6] + " South America" +
+        "   1) " + continentStrings[1] + " Africa\n" +
+        "   2) " + continentStrings[2] + " Asia\n" +
+        "   3) " + continentStrings[3] + " Oceania\n" +
+        "   4) " + continentStrings[4] + " Europe\n" +
+        "   5) " + continentStrings[5] + " North America\n" +
+        "   6) " + continentStrings[6] + " South America\n" +
         "   7) quit"
     );
 
