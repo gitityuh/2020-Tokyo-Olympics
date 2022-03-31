@@ -1,0 +1,60 @@
+Script started on 2022-03-31 06:06:35+00:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="118" LINES="61"]
+]0;ggervasio@first-instance: ~/Project2_DN_red[01;32mggervasio@first-instance[00m:[01;34m~/Project2_DN_red[00m$ git status
+On branch DataWrangler
+Your branch is ahead of 'origin/DataWrangler' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31mlog[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+]0;ggervasio@first-instance: ~/Project2_DN_red[01;32mggervasio@first-instance[00m:[01;34m~/Project2_DN_red[00m$ git log -1
+[?1h=[33mcommit 4314f7a6b07da29a22798b9f5ef123f03c53f245[m[33m ([m[1;36mHEAD -> [m[1;32mDataWrangler[m[33m)[m[m
+Author: George Gervasio <ggervasio@wisc.edu>[m
+Date:   Thu Mar 31 06:06:01 2022 +0000[m
+[m
+    commiting all untracked files[m
+[K[?1l>]0;ggervasio@first-instance: ~/Project2_DN_red[01;32mggervasio@first-instance[00m:[01;34m~/Project2_DN_red[00m$ make clean
+rm *.class
+]0;ggervasio@first-instance: ~/Project2_DN_red[01;32mggervasio@first-instance[00m:[01;34m~/Project2_DN_red[00m$ ls
+Country.java            ICountryLoader.java            Makefile                        log
+CountryLoader.java      ICountrySearcherBackend.java   SortedCollectionInterface.java
+DataWranglerTests.java  ICountrySearcherFrontend.java  Tokyo_Medals_2021.xml
+ICountry.java           IRedBlackTrees.java            [0m[01;31mjunit5.jar[0m
+]0;ggervasio@first-instance: ~/Project2_DN_red[01;32mggervasio@first-instance[00m:[01;34m~/Project2_DN_red[00m$ make runTests
+javac -cp .:junit5.jar DataWranglerTests.java -Xlint
+java -jar junit5.jar --class-path . --scan-classpath
+
+Thanks for using JUnit! Support its development at https://junit.org/sponsoring
+
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  └─[0m [36mDataWranglerTests[0m [32m✔[0m
+[36m│     ├─[0m [34mtestMedalCount()[0m [32m✔[0m
+[36m│     ├─[0m [34mtestGetName()[0m [32m✔[0m
+[36m│     ├─[0m [34mtestGetRank()[0m [32m✔[0m
+[36m│     ├─[0m [34mtestGetContinent()[0m [32m✔[0m
+[36m│     └─[0m [34mtestXMLFile()[0m [32m✔[0m
+[36m└─[0m [36mJUnit Vintage[0m [32m✔[0m
+
+Test run finished after 391 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[         5 tests found           ]
+[         0 tests skipped         ]
+[         5 tests started         ]
+[         0 tests aborted         ]
+[         5 tests successful      ]
+[         0 tests failed          ]
+
+javac  -cp .:junit5.jar CountryLoader.java
+javac  -cp .:junit5.jar Country.java
+]0;ggervasio@first-instance: ~/Project2_DN_red[01;32mggervasio@first-instance[00m:[01;34m~/Project2_DN_red[00m$ exit
+exit
+
+Script done on 2022-03-31 06:07:15+00:00 [COMMAND_EXIT_CODE="0"]
