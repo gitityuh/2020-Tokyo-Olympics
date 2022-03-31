@@ -11,7 +11,7 @@ public interface ICountrySearcherFrontend {
 
     /**
      * This method drives the entire read, eval, print loop (repl) for the
-     * Country Search App.  This loop will continue to run until the user
+     * FrontendCountry Search App.  This loop will continue to run until the user
      * explicitly enters the quit command.
      */
     void runCommandLoop();

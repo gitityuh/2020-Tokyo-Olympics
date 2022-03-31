@@ -4,33 +4,33 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * This class tests the functionality of CountrySearcherFrontend
  */
-public class FrontendTests {
+public class FrontendDeveloperTests {
 
   /**
    * Tests the Quit functionality
    */
   @Test public void test1() {
-    CountrySearcherBackend backend = new CountrySearcherBackend();
+    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
     CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "5\n");
     // if frontend terminated, it should run code below
     String output = outputCapturer.stop();
-    assertTrue(output.startsWith("Welcome to the Country Searcher App!"));
+    assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
   }
 
   /**
    * Tests the Countries by Medals functionality
    */
   @Test public void test2() {
-    CountrySearcherBackend backend = new CountrySearcherBackend();
+    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
     CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "1\ngold\n5\n");
     String output = outputCapturer.stop();
-    assertTrue(output.startsWith("Welcome to the Country Searcher App!"));
+    assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
     assertTrue(output.contains("United States of America: 1"));
   }
 
@@ -38,13 +38,13 @@ public class FrontendTests {
    * Tests the Countries in Alphabetical Order functionality
    */
   @Test public void test3() {
-    CountrySearcherBackend backend = new CountrySearcherBackend();
+    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
     CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "2\n5\n");
     String output = outputCapturer.stop();
-    assertTrue(output.startsWith("Welcome to the Country Searcher App!"));
+    assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
     // this will depend on the implementation of compareTo, but for now the following tests all
     // countries I added manually:
     assertTrue(output.contains("Australia"));
@@ -53,16 +53,16 @@ public class FrontendTests {
   }
 
   /**
-   * Tests the Medals by Country functionality
+   * Tests the Medals by FrontendCountry functionality
    */
   @Test public void test4() {
-    CountrySearcherBackend backend = new CountrySearcherBackend();
+    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
     CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "3\nChina\n5\n");
     String output = outputCapturer.stop();
-    assertTrue(output.startsWith("Welcome to the Country Searcher App!"));
+    assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
     // output that I expect from manual list created in Backend
     assertTrue(output.contains("Gold: 0"));
     assertTrue(output.contains("Silver: 1"));
@@ -73,13 +73,13 @@ public class FrontendTests {
    * Tests the Filter by Continent functionality
    */
   @Test public void test5() {
-    CountrySearcherBackend backend = new CountrySearcherBackend();
+    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
     CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "4\n1\n2\n7\n5\n");
     String output = outputCapturer.stop();
-    assertTrue(output.startsWith("Welcome to the Country Searcher App!"));
+    assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
     // checks if the two continents have been toggled off
     assertTrue(output.contains("___ Africa"));
     assertTrue(output.contains("___ Asia"));
@@ -90,7 +90,7 @@ public class FrontendTests {
    * @param args
    */
   public static void main(String[] args) {
-    CountrySearcherBackend backend = new CountrySearcherBackend();
+    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
     CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend);
   }
 
