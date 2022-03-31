@@ -1,0 +1,202 @@
+Script started on Wed Mar 30 20:49:48 2022
+[0m[49m[39m[27m[24m[1m[7m%[27m[1m[0m                                                                                    [0m[49m[39m[27m[24m[K
+
+[2A7[0m[49m[39m[0m[49m[34m~/code/java/School/Project2_DN_red[0m[34m[49m[34m[0m[34m[49m[30m[0m[30m[49m[39m                                          [0m[49m[38;5;242m20:49:48[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[39m
+[0m[49m[35m❯[0m[35m[49m[35m[0m[35m[49m[30m[0m[30m[49m[39m [0m[49m[39m[?25l8[0m[49m[39m[27m[24m[J]2;kevinlee@Kevins-Machine:~/code/java/School/Project2_DN_red]1;..oject2_DN_red[0m[49m[39m[27m[24m[1m[7m%[27m[1m[0m                                                                                    [0m[49m[39m[27m[24m[K[0m[27m[24m[J[0m[49m[39m
+[A[0m[49m[34m~/code/java/School/Project2_DN_red[0m[34m[49m[34m[0m[34m[49m[30m[0m[30m[49m[39m                                          [0m[49m[38;5;242m20:49:48[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[39m
+[0m[49m[35m❯[0m[35m[49m[35m[0m[35m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[?1h=[?12l[?25h[?2004h[?25l[A[0m[27m[24m[J[0m[49m[39m
+[A[0m[49m[34m~/code/java/School/Project2_DN_red[0m[34m[49m[34m[0m[34m[49m [0m[34m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242mFrontendDeveloper[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[30m[0m[30m[49m[39m                        [0m[49m[38;5;242m20:49:48[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[39m
+[0m[49m[35m❯[0m[35m[49m[35m[0m[35m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[?12l[?25h[?25l[A[0m[27m[24m[J[0m[49m[39m
+[A[0m[49m[34m~/code/java/School/Project2_DN_red[0m[34m[49m[34m[0m[34m[49m [0m[34m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242mFrontendDeveloper[0m[38;5;242m[49m[38;5;242m*[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[30m[0m[30m[49m[39m                       [0m[49m[38;5;242m20:49:48[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[39m
+[0m[49m[35m❯[0m[35m[49m[35m[0m[35m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[?12l[?25hggit status[?1l>[?2004l
+]2;git status]1;gitOn branch FrontendDeveloper
+Your branch is up to date with 'origin/FrontendDeveloper'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[36mlog[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+[1m[7m%[27m[1m[0m                                                                                     ]2;kevinlee@Kevins-Machine:~/code/java/School/Project2_DN_red]1;..oject2_DN_red[0m[27m[24m[J[0m[49m[39m
+[A[0m[49m[34m~/code/java/School/Project2_DN_red[0m[34m[49m[34m[0m[34m[49m [0m[34m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242mFrontendDeveloper[0m[38;5;242m[49m[38;5;242m*[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[30m[0m[30m[49m[39m                       [0m[49m[38;5;242m20:49:51[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[39m
+[0m[49m[35m❯[0m[35m[49m[35m[0m[35m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[?1h=[?2004h[?25l[A[0m[27m[24m[J[0m[49m[39m
+[A[0m[49m[34m~/code/java/School/Project2_DN_red[0m[34m[49m[34m[0m[34m[49m [0m[34m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242mFrontendDeveloper[0m[38;5;242m[49m[38;5;242m*[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[30m[0m[30m[49m[39m                       [0m[49m[38;5;242m20:49:51[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[39m
+[0m[49m[35m❯[0m[35m[49m[35m[0m[35m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[?12l[?25hggi t log -1[?1l>[?2004l
+]2;git log -1]1;git[?1049h[?1h=[33mcommit 974aed808a2ecbc0cd041016140ffc8694d1b819[m[33m ([m[1;36mHEAD -> [m[1;32mFrontendDeveloper[m[33m, [m[1;31morigin/Fr[m [33m[m[33m[m[1;36m[m[1;32m[m[33m[m[1;31montendDeveloper[m[33m)[m[m
+Author: Kevin Lee <ke_vinlee@outlook.com>[m
+Date:   Wed Mar 30 20:49:14 2022 -0500[m
+[m
+    fixed Makefile[m
+[7m(END)[27m[K[K[?1l>[?1049l[1m[7m%[27m[1m[0m                                                                                     ]2;kevinlee@Kevins-Machine:~/code/java/School/Project2_DN_red]1;..oject2_DN_red[0m[27m[24m[J[0m[49m[39m
+[A[0m[49m[34m~/code/java/School/Project2_DN_red[0m[34m[49m[34m[0m[34m[49m [0m[34m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242mFrontendDeveloper[0m[38;5;242m[49m[38;5;242m*[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[30m[0m[30m[49m[39m                       [0m[49m[38;5;242m20:49:57[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[39m
+[0m[49m[35m❯[0m[35m[49m[35m[0m[35m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[?1h=[?2004hmmake clean[?1l>[?2004l
+]2;make clean]1;makerm *.class
+rm: *.class: No such file or directory
+make: *** [clean] Error 1
+[1m[7m%[27m[1m[0m                                                                                     ]2;kevinlee@Kevins-Machine:~/code/java/School/Project2_DN_red]1;..oject2_DN_red[0m[27m[24m[J[0m[49m[39m
+[A[0m[49m[34m~/code/java/School/Project2_DN_red[0m[34m[49m[34m[0m[34m[49m [0m[34m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242mFrontendDeveloper[0m[38;5;242m[49m[38;5;242m*[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[30m[0m[30m[49m[39m                       [0m[49m[38;5;242m20:50:00[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[39m
+[0m[49m[31m❯[0m[31m[49m[31m[0m[31m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[?1h=[?2004hlls[?1l>[?2004l
+]2;ls -G]1;lsConsoleOutputCapturer.java          IRedBlackTrees.java
+CountrySearcherFrontend.java        Makefile
+FrontendCountry.java                OlympicCountry.java
+FrontendCountrySearcherBackend.java Project2_DN_red.iml
+FrontendDeveloperTests.java         SortedCollectionInterface.java
+ICountry.java                       Tokyo_Medals_2021.xml
+ICountryLoader.java                 junit5.jar
+ICountrySearcherBackend.java        log
+ICountrySearcherFrontend.java       [1m[36mout[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                     ]2;kevinlee@Kevins-Machine:~/code/java/School/Project2_DN_red]1;..oject2_DN_red[0m[27m[24m[J[0m[49m[39m
+[A[0m[49m[34m~/code/java/School/Project2_DN_red[0m[34m[49m[34m[0m[34m[49m [0m[34m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242mFrontendDeveloper[0m[38;5;242m[49m[38;5;242m*[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[30m[0m[30m[49m[39m                       [0m[49m[38;5;242m20:50:01[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[39m
+[0m[49m[35m❯[0m[35m[49m[35m[0m[35m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[?1h=[?2004hmmake cl  runTests[?1l>[?2004l
+]2;make runTests]1;makejavac -cp junit5.jar:. FrontendDeveloperTests.java
+java -jar junit5.jar --class-path . --select-class FrontendDeveloperTests
+Welcome to the FrontendCountry Searcher App!
+=================================
+Command Menu:
+   1) Countries by Medals
+   2) Countries in Alphabetical Order
+   3) Medals by FrontendCountry
+   4) Filter by Continent
+   5) Quit
+
+Choose a command from the menu above: 
+Welcome to the FrontendCountry Searcher App!
+=================================
+Command Menu:
+   1) Countries by Medals
+   2) Countries in Alphabetical Order
+   3) Medals by FrontendCountry
+   4) Filter by Continent
+   5) Quit
+
+Choose a command from the menu above: 
+Choose a medal type you would like to search for: 
+United States of America: 1
+Command Menu:
+   1) Countries by Medals
+   2) Countries in Alphabetical Order
+   3) Medals by FrontendCountry
+   4) Filter by Continent
+   5) Quit
+
+Choose a command from the menu above: 
+Welcome to the FrontendCountry Searcher App!
+=================================
+Command Menu:
+   1) Countries by Medals
+   2) Countries in Alphabetical Order
+   3) Medals by FrontendCountry
+   4) Filter by Continent
+   5) Quit
+
+Choose a command from the menu above: 
+Australia
+China
+United States of America
+Command Menu:
+   1) Countries by Medals
+   2) Countries in Alphabetical Order
+   3) Medals by FrontendCountry
+   4) Filter by Continent
+   5) Quit
+
+Choose a command from the menu above: 
+Welcome to the FrontendCountry Searcher App!
+=================================
+Command Menu:
+   1) Countries by Medals
+   2) Countries in Alphabetical Order
+   3) Medals by FrontendCountry
+   4) Filter by Continent
+   5) Quit
+
+Choose a command from the menu above: 
+Choose a country you would like to search for (case sensitive!): 
+Gold: 0
+Silver: 1
+Bronze: 1
+Command Menu:
+   1) Countries by Medals
+   2) Countries in Alphabetical Order
+   3) Medals by FrontendCountry
+   4) Filter by Continent
+   5) Quit
+
+Choose a command from the menu above: 
+Welcome to the FrontendCountry Searcher App!
+=================================
+Command Menu:
+   1) Countries by Medals
+   2) Countries in Alphabetical Order
+   3) Medals by FrontendCountry
+   4) Filter by Continent
+   5) Quit
+
+Choose a command from the menu above: 
+Continents:
+   1) _x_ Africa
+   2) _x_ Asia
+   3) _x_ Oceania
+   4) _x_ Europe
+   5) _x_ North America
+   6) _x_ South America
+   7) quit
+Choose the continent that you would like to toggle the filter for: 
+Continents:
+   1) ___ Africa
+   2) _x_ Asia
+   3) _x_ Oceania
+   4) _x_ Europe
+   5) _x_ North America
+   6) _x_ South America
+   7) quit
+Choose the continent that you would like to toggle the filter for: 
+Continents:
+   1) ___ Africa
+   2) ___ Asia
+   3) _x_ Oceania
+   4) _x_ Europe
+   5) _x_ North America
+   6) _x_ South America
+   7) quit
+Choose the continent that you would like to toggle the filter for: 
+Command Menu:
+   1) Countries by Medals
+   2) Countries in Alphabetical Order
+   3) Medals by FrontendCountry
+   4) Filter by Continent
+   5) Quit
+
+Choose a command from the menu above: 
+
+Thanks for using JUnit! Support its development at https://junit.org/sponsoring
+
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  └─[0m [36mFrontendDeveloperTests[0m [32m✔[0m
+[36m│     ├─[0m [34mtest1()[0m [32m✔[0m
+[36m│     ├─[0m [34mtest2()[0m [32m✔[0m
+[36m│     ├─[0m [34mtest3()[0m [32m✔[0m
+[36m│     ├─[0m [34mtest4()[0m [32m✔[0m
+[36m│     └─[0m [34mtest5()[0m [32m✔[0m
+[36m└─[0m [36mJUnit Vintage[0m [32m✔[0m
+
+Test run finished after 50 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[         5 tests found           ]
+[         0 tests skipped         ]
+[         5 tests started         ]
+[         0 tests aborted         ]
+[         5 tests successful      ]
+[         0 tests failed          ]
+
+[1m[7m%[27m[1m[0m                                                                                     ]2;kevinlee@Kevins-Machine:~/code/java/School/Project2_DN_red]1;..oject2_DN_red[0m[27m[24m[J[0m[49m[39m
+[A[0m[49m[34m~/code/java/School/Project2_DN_red[0m[34m[49m[34m[0m[34m[49m [0m[34m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242mFrontendDeveloper[0m[38;5;242m[49m[38;5;242m*[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[30m[0m[30m[49m[39m                       [0m[49m[38;5;242m20:50:08[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[38;5;242m[0m[38;5;242m[49m[39m
+[0m[49m[35m❯[0m[35m[49m[35m[0m[35m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[?1h=[?2004heexit[?1l>[?2004l
+]2;exit]1;exit
+Script done on Wed Mar 30 20:50:10 2022
