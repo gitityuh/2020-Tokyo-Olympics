@@ -1,6 +1,6 @@
 /**
  * Instances of classes that implement this interface represents a single
- * Country object that can be stored, sorted, and searched based on
+ * FrontendCountry object that can be stored, sorted, and searched based on
  * these accessors below.
  */
 public interface ICountry extends Comparable<ICountry> {

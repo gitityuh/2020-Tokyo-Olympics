@@ -1,6 +1,5 @@
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -20,7 +19,7 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
   public CountrySearcherFrontend(ICountrySearcherBackend backend) {
     scanner = new Scanner(System.in);
     this.backend = backend;
-    System.out.println("Welcome to the Country Searcher App!\n" +
+    System.out.println("Welcome to the FrontendCountry Searcher App!\n" +
         "=================================");
     displayCommandMenu();
 //    runCommandLoop();
@@ -34,14 +33,14 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
   public CountrySearcherFrontend(ICountrySearcherBackend backend, String input) {
     scanner = new Scanner(input);
     this.backend = backend;
-    System.out.println("Welcome to the Country Searcher App!\n" +
+    System.out.println("Welcome to the FrontendCountry Searcher App!\n" +
         "=================================");
     displayCommandMenu();
   }
 
   /**
    * This method drives the entire read, eval, print loop (repl) for the
-   * Country Search App.  This loop will continue to run until the user
+   * FrontendCountry Search App.  This loop will continue to run until the user
    * explicitly enters the quit command.
    */
   @Override public void runCommandLoop() {
@@ -89,7 +88,7 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
         "Command Menu:\n" +
         "   1) Countries by Medals\n" +
         "   2) Countries in Alphabetical Order\n" +
-        "   3) Medals by Country\n" +
+        "   3) Medals by FrontendCountry\n" +
         "   4) Filter by Continent\n" +
         "   5) Quit\n"
     );
@@ -153,7 +152,7 @@ public class CountrySearcherFrontend implements ICountrySearcherFrontend{
     String countryName = scanner.nextLine().trim();
     ICountry countryObject = backend.searchByName(countryName);
     if (countryObject == null) {
-      System.out.println("Country does not exist. Please try again.");
+      System.out.println("FrontendCountry does not exist. Please try again.");
       medalsByCountry();
     }
     System.out.println("Gold: " + countryObject.getGoldMedals());

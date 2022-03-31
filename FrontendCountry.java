@@ -1,4 +1,4 @@
-public class Country implements ICountry{
+public class FrontendCountry implements ICountry{
 
   public String name;
   public int goldMedals;
@@ -8,7 +8,7 @@ public class Country implements ICountry{
   public int rank;
   String continent;
 
-  public Country(String name, int goldMedals, int silverMedals, int bronzeMedals, int totalMedals,
+  public FrontendCountry(String name, int goldMedals, int silverMedals, int bronzeMedals, int totalMedals,
       int rank, String continent) {
     this.name = name;
     this.goldMedals = goldMedals;

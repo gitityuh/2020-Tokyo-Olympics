@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class CountrySearcherBackend implements ICountrySearcherBackend{
+public class FrontendCountrySearcherBackend implements ICountrySearcherBackend{
   private boolean africaToggle;
   private boolean asiaToggle;
   private boolean ausToggle;
@@ -16,9 +16,10 @@ public class CountrySearcherBackend implements ICountrySearcherBackend{
 
   @Override public ICountry searchByName(String name) {
     ArrayList<ICountry> list = new ArrayList<>();
-    Country usa = new Country("United States of America", 1, 1, 1, 3, 1, "North America");
-    Country china = new Country("China", 0, 1, 1, 2, 2,"Asia");
-    Country australia = new Country("Australia", 0, 0, 1, 1, 3, "Oceania");
+    FrontendCountry
+        usa = new FrontendCountry("United States of America", 1, 1, 1, 3, 1, "North America");
+    FrontendCountry china = new FrontendCountry("China", 0, 1, 1, 2, 2,"Asia");
+    FrontendCountry australia = new FrontendCountry("Australia", 0, 0, 1, 1, 3, "Oceania");
 
     list.add(australia);
     list.add(china);
@@ -35,9 +36,10 @@ public class CountrySearcherBackend implements ICountrySearcherBackend{
   @Override public List<ICountry> outputByTypeOfMedals(String medalType) {
 
     ArrayList<ICountry> list = new ArrayList<>();
-    Country usa = new Country("United States of America", 1, 1, 1, 3, 1, "North America");
-    Country china = new Country("China", 0, 1, 1, 2, 2,"Asia");
-    Country australia = new Country("Australia", 0, 0, 1, 1, 3, "Oceania");
+    FrontendCountry
+        usa = new FrontendCountry("United States of America", 1, 1, 1, 3, 1, "North America");
+    FrontendCountry china = new FrontendCountry("China", 0, 1, 1, 2, 2,"Asia");
+    FrontendCountry australia = new FrontendCountry("Australia", 0, 0, 1, 1, 3, "Oceania");
 
     ArrayList<ICountry> output = new ArrayList<>();
 
@@ -67,9 +69,10 @@ public class CountrySearcherBackend implements ICountrySearcherBackend{
 
   @Override public List<ICountry> outputByAlphabeticalName() {
     ArrayList<ICountry> list = new ArrayList<>();
-    Country usa = new Country("United States of America", 1, 1, 1, 3, 1, "North America");
-    Country china = new Country("China", 0, 1, 1, 2, 2,"Asia");
-    Country australia = new Country("Australia", 0, 0, 1, 1, 3, "Oceania");
+    FrontendCountry
+        usa = new FrontendCountry("United States of America", 1, 1, 1, 3, 1, "North America");
+    FrontendCountry china = new FrontendCountry("China", 0, 1, 1, 2, 2,"Asia");
+    FrontendCountry australia = new FrontendCountry("Australia", 0, 0, 1, 1, 3, "Oceania");
     list.add(australia);
     list.add(china);
     list.add(usa);

@@ -2,7 +2,7 @@ import java.util.List;
 
 /**
  * An instance of a class that implements the following interface can be used to
- * sort and search the database of countries's 2020 Tokyo Country medals within
+ * sort and search the database of countries's 2020 Tokyo FrontendCountry medals within
  * the Countrys app.
  */
 public interface ICountrySearcherBackend {
