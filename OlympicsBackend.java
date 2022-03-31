@@ -8,11 +8,13 @@ import java.util.Locale;
  * olympic performances
  */
 public class OlympicsBackend implements ICountrySearcherBackend {
-    private RedBlackTree<ICountry> goldMedalTree;
-    private RedBlackTree<ICountry> silverMedalTree;
-    private RedBlackTree<ICountry> bronzeMedalTree;
+    //trees are only public because i need to acces them for the test for now will change back to private after merge
+    //will also change into proper redBlackTree type
+    public RedBlackTreeBackend<ICountry> goldMedalTree = new RedBlackTreeBackend<>();
+    public RedBlackTreeBackend<ICountry> silverMedalTree = new RedBlackTreeBackend<>();
+    public RedBlackTreeBackend<ICountry> bronzeMedalTree = new RedBlackTreeBackend<>();
     //private RedBlackTree<ICountry> totalMedalTree;
-    private RedBlackTree<ICountry> countryNameTree;
+    public RedBlackTreeBackend<ICountry> countryNameTree = new RedBlackTreeBackend<>();
     private boolean africaToggle = true;
     private boolean asiaToggle = true;
     private boolean ausToggle = true;
