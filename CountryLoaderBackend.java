@@ -1,7 +1,7 @@
 import java.io.FileNotFoundException;
 import java.util.List;
 //place holder class
-public class CountryLoaderBackEnd implements ICountryLoader{
+public class CountryLoaderBackend implements ICountryLoader{
     /**
      * This method loads the data from the xml file to the country object.
      *
