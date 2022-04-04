@@ -4,14 +4,14 @@ import java.io.FileNotFoundException;
 /**
  * Instances of classes that implement this interface can be used to load a 
  * list of data points from a specified xml source file.
- * The following csv columns are used to load these Country attributes:
+ * The following csv columns are used to load these FrontendCountry attributes:
  *   name: name of the country
  *   goldMedal: number of gold medals
  *   silverMedal: number of silver medals
  *   bronzeMedal: number of bronze medals
  *   totalMedals: number of all medals
  *   rank: olympic rank
- *   continent: continent of the Country
+ *   continent: continent of the FrontendCountry
  *   
  */
 public interface ICountryLoader {
