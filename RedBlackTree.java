@@ -2,11 +2,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
-import java.util.Random;
-import java.util.Stack;
+import java.util.*;
 
 import org.junit.jupiter.api.Test;
 /**
@@ -20,6 +16,7 @@ import org.junit.jupiter.api.Test;
  */
 public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionInterface<T>, IRedBlackTrees<T> {
 
+    protected ArrayList<T> countryList = new ArrayList<>();
     /**
      * This class represents a node holding a single value within a binary tree
      * the parent, left, and right child references are always maintained.
@@ -849,6 +846,19 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
     public String toString() {
         return "level order: " + this.toLevelOrderString() +
                 "/nin order: " + this.toInOrderString();
+    }
+
+    public ArrayList<T> storeKeyValues(RedBlackTree.Node<T> root) {
+        countryList = new ArrayList<>();
+        treeTravel(root);
+        return countryList;
+    }
+    private void treeTravel(RedBlackTree.Node<T> node) {
+        if (node != null) {
+            treeTravel(node.leftChild);
+            countryList.add(node.data);
+            treeTravel(node.rightChild);
+        }
     }
 
 
