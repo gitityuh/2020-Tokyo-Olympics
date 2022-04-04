@@ -18,9 +18,10 @@ public interface ICountrySearcherBackend {
     // These methods return either a list of ICountrys or an ICountry
     ICountry searchByName(String name);
     //public List<ICountry> outputByTotalMedals();
-    List<ICountry> outputByTypeOfMedals(String medalType);
-    List<ICountry> outputByAlphabeticalName();
-    void toggleContinentFilter(Integer number);
+
+    public List<ICountry> outputByTypeOfMedals(String medalType);
+    public List<ICountry> outputByAlphabeticalName();
+    public void toggleContinentFilter(Integer number);
 
 }
 
