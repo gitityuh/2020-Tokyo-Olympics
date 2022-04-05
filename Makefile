@@ -19,7 +19,7 @@ clean:
 
 
 
-runDatatWranglerTests: DataWranglerTests 
+runDataWranglerTests: DataWranglerTests 
 	javac  -cp .:junit5.jar CountryLoader.java
 	
 	javac  -cp .:junit5.jar Country.java
