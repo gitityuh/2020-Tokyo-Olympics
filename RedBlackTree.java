@@ -14,21 +14,21 @@ import java.util.*;
  * a regular binary search tree, and its toString method to display a level-order
  * traversal of the tree.
  */
-public class RedBlackTree<T extends Country, K extends Comparable<K>> implements IRedBlackTrees<T, K> {
+public class RedBlackTree<T extends ICountry, K extends Comparable<K>> implements IRedBlackTrees<T, K> {
 
-    protected ArrayList<Country> countryList = new ArrayList<>();
+    protected ArrayList<ICountry> countryList = new ArrayList<>();
     /**
      * This class represents a node holding a single value within a binary tree
      * the parent, left, and right child references are always maintained.
      */
     protected static class Node<T, K> {
-        public Country data;
+        public ICountry data;
         public K key;
         public int blackHeight = 0;
         public Node<T, K> parent; // null for root node
         public Node<T, K> leftChild;
         public Node<T, K> rightChild;
-        public Node(Country data, K key) { this.data = data; this.key = key;}
+        public Node(ICountry data, K key) { this.data = data; this.key = key;}
         /**
          * @return true when this node has a parent and is the left child of
          * that parent, otherwise return false
@@ -451,10 +451,10 @@ public class RedBlackTree<T extends Country, K extends Comparable<K>> implements
         int compare = newNode.key.compareTo(subtree.key);
         // do not allow duplicate values to be stored within this tree
         if(compare == 0) {
-            if (newNode.data.countryName.compareTo(subtree.data.countryName) < 0){
+            if (newNode.data.getName().compareTo(subtree.data.getName()) < 0){
                     compare = -1;
             }
-            else if (newNode.data.countryName.compareTo(subtree.data.countryName) < 0){
+            else if (newNode.data.getName().compareTo(subtree.data.getName()) < 0){
                 compare = 1;
             }
             else {
@@ -726,7 +726,7 @@ public class RedBlackTree<T extends Country, K extends Comparable<K>> implements
             int compare = key.compareTo(subtree.key);
 
             if (compare == 0) {
-                compare = data.countryName.compareTo(subtree.data.countryName);
+                compare = data.getName().compareTo(subtree.data.getName());
             }
             else if (compare < 0) {
                 // go left in the tree
@@ -828,7 +828,7 @@ public class RedBlackTree<T extends Country, K extends Comparable<K>> implements
         while (treeNodeIterator.hasNext()) {
             T data = treeNodeIterator.next();
             sb.append(", ");
-            sb.append(data.countryName.toString());
+            sb.append(data.getName().toString());
         }
         sb.append(" ]");
         return sb.toString();
@@ -854,7 +854,7 @@ public class RedBlackTree<T extends Country, K extends Comparable<K>> implements
             Node<T, K> next = q.removeFirst();
             if(next.leftChild != null) q.add(next.leftChild);
             if(next.rightChild != null) q.add(next.rightChild);
-            output += next.data.countryName.toString();
+            output += next.data.getName().toString();
             if(!q.isEmpty()) output += ", ";
         }
         return output + " ]";

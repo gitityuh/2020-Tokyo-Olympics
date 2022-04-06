@@ -17,10 +17,10 @@ public class CountrySearcherBackend implements ICountrySearcherBackend {
     //private RedBlackTree<ICountry> totalMedalTree;
 
     //real red black trees for the tests after integration
-    private RedBlackTree<ICountry> goldMedalTree = new RedBlackTree<>();
-    private RedBlackTree<ICountry> silverMedalTree = new RedBlackTree<>();
-    private RedBlackTree<ICountry> bronzeMedalTree = new RedBlackTree<>();
-    private RedBlackTree<ICountry> countryNameTree = new RedBlackTree<>();
+    private RedBlackTree<ICountry,Integer> goldMedalTree = new RedBlackTree<>();
+    private RedBlackTree<ICountry,Integer> silverMedalTree = new RedBlackTree<>();
+    private RedBlackTree<ICountry,Integer> bronzeMedalTree = new RedBlackTree<>();
+    private RedBlackTree<ICountry,String> countryNameTree = new RedBlackTree<>();
 
     private boolean africaToggle = true;
     private boolean asiaToggle = true;

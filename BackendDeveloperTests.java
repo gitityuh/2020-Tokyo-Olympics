@@ -110,9 +110,9 @@ public class BackendDeveloperTests {
      */
     @Test public void test6() {
         CountrySearcherBackend backend = new CountrySearcherBackend();
-        CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
-        CountryBackend country2 =
-            new CountryBackend(10, 1, 2, "north america", "North American Country");
+        Country country1 = new Country("African Country",5, 4, 2, 1, "africa");
+        Country country2 =
+            new Country("North American Country",10, 1, 2, 1, "North America");
         backend.addCountry(country1);
         backend.addCountry(country2);
         List<ICountry> countriesGoldmedal = backend.outputByTypeOfMedals("gold");
@@ -126,14 +126,14 @@ public class BackendDeveloperTests {
      */
     @Test public void test7() {
         CountrySearcherBackend backend = new CountrySearcherBackend();
-        CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
-        CountryBackend country2 =
-            new CountryBackend(10, 1, 2, "north america", "North American Country");
-        CountryBackend country3 =
-            new CountryBackend(3, 1, 2, "north america", "North American Country Two");
-        CountryBackend country4 =
-            new CountryBackend(7, 1, 2, "south america", "South American Country");
-        CountryBackend country5 = new CountryBackend(6, 1, 2, "asia", "Asian Country");
+        Country country1 = new Country("African Country", 5, 4, 2,1,"africa");
+        Country country2 =
+            new Country("North American Country",10, 1, 2, 1, "North American Country");
+        Country country3 =
+            new Country("North American Country two",3, 1, 2, 1, "North American Country Two");
+        Country country4 =
+            new Country("South American Country",7, 1, 2, 1, "south america");
+        Country country5 = new Country("Asian Country",6, 1, 2, 1, "asia");
 
         backend.addCountry(country1);
         backend.addCountry(country2);
@@ -150,11 +150,11 @@ public class BackendDeveloperTests {
      */
     @Test public void test8() {
         CountrySearcherBackend backend = new CountrySearcherBackend();
-        CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "A");
-        CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "B");
-        CountryBackend country3 = new CountryBackend(3, 1, 2, "north america", "C");
-        CountryBackend country4 = new CountryBackend(7, 1, 2, "south america", "D");
-        CountryBackend country5 = new CountryBackend(6, 1, 2, "asia", "E");
+        Country country1 = new Country("A",5, 4, 2, 1,"africa" );
+        Country country2 = new Country("B",10, 1, 2, 1, "north america");
+        Country country3 = new Country("C",3, 1, 2, 1, "north america");
+        Country country4 = new Country("D",7, 1, 2,    1, "south america");
+        Country country5 = new Country("E",6, 1, 2, 1, "Asia");
 
         backend.addCountry(country1);
         backend.addCountry(country2);
@@ -173,12 +173,12 @@ public class BackendDeveloperTests {
     test to see if the RBT can sort countries by gold medal count
      */
     @Test public void test9() {
-        RedBlackTree RBT = new RedBlackTree();
-        CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "A");
-        CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "B");
-        CountryBackend country3 = new CountryBackend(3, 1, 2, "north america", "C");
-        CountryBackend country4 = new CountryBackend(7, 1, 2, "south america", "D");
-        CountryBackend country5 = new CountryBackend(6, 1, 2, "asia", "E");
+        RedBlackTree<ICountry,Integer> RBT = new RedBlackTree();
+        Country country1 = new Country("africa",5, 4, 2, 1, "A");
+        Country country2 = new Country("north america",10, 1, 2, 1, "B");
+        Country country3 = new Country("north america",3, 1, 2, 1, "C");
+        Country country4 = new Country("south america",7, 1, 2, 1, "D");
+        Country country5 = new Country("asia",6, 1, 2, 1, "E");
         //RBT should be sorting by gold medal numbers
         RBT.insert(country1,country1.getGoldMedals());
         RBT.insert(country2,country2.getGoldMedals());
@@ -197,11 +197,11 @@ public class BackendDeveloperTests {
      */
     @Test public void test10() {
         RedBlackTree RBT = new RedBlackTree();
-        CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "A");
-        CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "B");
-        CountryBackend country3 = new CountryBackend(3, 1, 2, "north america", "C");
-        CountryBackend country4 = new CountryBackend(7, 1, 2, "south america", "D");
-        CountryBackend country5 = new CountryBackend(6, 1, 2, "asia", "E");
+        Country country1 = new Country("A",5, 4, 2, 1,"africa");
+        Country country2 = new Country("B",10, 1, 2, 1,"north america");
+        Country country3 = new Country("C",3, 1, 2, 1,"north america");
+        Country country4 = new Country("D",7, 1, 2,1,"south america");
+        Country country5 = new Country("E",6, 1, 2, 1,"asia");
         RBT.insert(country1,country1.getName());
         RBT.insert(country2,country2.getName());
         RBT.insert(country3,country3.getName());
