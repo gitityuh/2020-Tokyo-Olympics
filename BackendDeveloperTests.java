@@ -169,11 +169,50 @@ public class BackendDeveloperTests {
     }//end test 8
 
     //testing the Red Black tree and Algorithm Engineer Code
-
+    /*
+    test to see if the RBT can sort countries by gold medal count
+     */
     @Test public void test9() {
-
+        RedBlackTree RBT = new RedBlackTree();
+        CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "A");
+        CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "B");
+        CountryBackend country3 = new CountryBackend(3, 1, 2, "north america", "C");
+        CountryBackend country4 = new CountryBackend(7, 1, 2, "south america", "D");
+        CountryBackend country5 = new CountryBackend(6, 1, 2, "asia", "E");
+        //RBT should be sorting by gold medal numbers
+        RBT.insert(country1,country1.getGoldMedals());
+        RBT.insert(country2,country2.getGoldMedals());
+        RBT.insert(country3,country3.getGoldMedals());
+        RBT.insert(country4,country4.getGoldMedals());
+        RBT.insert(country5,country5.getGoldMedals());
+        //testing to see if the RBT has the correct nodes in the correct location ideally
+        //sorting integers
+        assertEquals(RBT.root,country1);
+        assertEquals(RBT.root.rightChild,country4);
+        assertEquals(RBT.root.leftChild,country3);
     }//end test 9
 
+    /**
+     * test to see if the RBT can sort by alphabetical names
+     */
+    @Test public void test10() {
+        RedBlackTree RBT = new RedBlackTree();
+        CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "A");
+        CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "B");
+        CountryBackend country3 = new CountryBackend(3, 1, 2, "north america", "C");
+        CountryBackend country4 = new CountryBackend(7, 1, 2, "south america", "D");
+        CountryBackend country5 = new CountryBackend(6, 1, 2, "asia", "E");
+        RBT.insert(country1,country1.getName());
+        RBT.insert(country2,country2.getName());
+        RBT.insert(country3,country3.getName());
+        RBT.insert(country4,country4.getName());
+        RBT.insert(country5,country5.getName());
+        //testing to see if the RBT has the correct nodes in the correct location ideally
+        //sorting by Name by should be storing country objects
+        assertEquals(RBT.root,country2);
+        assertEquals(RBT.root.rightChild,country4);
+        assertEquals(RBT.root.leftChild,country1);
+    }//end test 10
 
     public static void main(String[] args) {
 
