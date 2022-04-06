@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,8 +16,8 @@ public class BackendDeveloperTests {
             new CountryBackend(10, 1, 2, "north america", "North American Country");
         backend.addCountry(country1);
         backend.addCountry(country2);
-        backend.goldMedalTree.setRoot(country1);
-        backend.goldMedalTree.setRootRight(country2);
+        backend.goldMedalTreeBackend.setRoot(country1);
+        backend.goldMedalTreeBackend.setRootRight(country2);
         List<ICountry> countriesGold = backend.outputByTypeOfMedals("gold");
         assertEquals(country2, countriesGold.get(1));
     }//end test 1
@@ -33,8 +32,8 @@ public class BackendDeveloperTests {
         CountryBackend country2 = new CountryBackend(10, 1, 2, "asia", "Asian Country");
         backend.addCountry(country1);
         backend.addCountry(country2);
-        backend.silverMedalTree.setRoot(country1);
-        backend.silverMedalTree.setRootleft(country2);
+        backend.silverMedalTreeBackend.setRoot(country1);
+        backend.silverMedalTreeBackend.setRootleft(country2);
         List<ICountry> countriesSilver = backend.outputByTypeOfMedals("silver");
         assertEquals(country1, countriesSilver.get(1));
     }//end test 2
@@ -51,8 +50,8 @@ public class BackendDeveloperTests {
         CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "North American Country");
         backend.addCountry(country1);
         backend.addCountry(country2);
-        backend.bronzeMedalTree.setRoot(country1);
-        backend.bronzeMedalTree.setRootleft(country2);
+        backend.bronzeMedalTreeBackend.setRoot(country1);
+        backend.bronzeMedalTreeBackend.setRootleft(country2);
         List<ICountry> countriesBronze = backend.outputByTypeOfMedals("bronze");
         assertEquals(country1, countriesBronze.get(1));
     }
@@ -67,8 +66,8 @@ public class BackendDeveloperTests {
         CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "North American Country");
         backend.addCountry(country1);
         backend.addCountry(country2);
-        backend.bronzeMedalTree.setRoot(country1);
-        backend.bronzeMedalTree.setRootleft(country2);
+        backend.bronzeMedalTreeBackend.setRoot(country1);
+        backend.bronzeMedalTreeBackend.setRootleft(country2);
         backend.toggleContinentFilter(1); //this will remove africa from the search results
         //therefore only country two should be in the list
         List<ICountry> countriesBronze = backend.outputByTypeOfMedals("bronze");
@@ -89,8 +88,8 @@ public class BackendDeveloperTests {
         CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "North American Country");
         backend.addCountry(country1);
         backend.addCountry(country2);
-        backend.countryNameTree.setRoot(country1);
-        backend.countryNameTree.setRootRight(country2);
+        backend.countryNameTreeBackend.setRoot(country1);
+        backend.countryNameTreeBackend.setRootRight(country2);
         List<ICountry> countriesAlphabetical = backend.outputByAlphabeticalName();
        // System.out.println(countriesAlphabetical.get(1).getName());
         ICountry country = backend.searchByName("North American Country");
@@ -106,8 +105,8 @@ public class BackendDeveloperTests {
 
     }
 
-    public void insert(Object t, Object b){
+    //public void insert(Object t, Object b){
 
-    }
+    //}
 
 }
