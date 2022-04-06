@@ -6,9 +6,12 @@ public interface IRedBlackTrees<T , K> extends SortedCollectionInterface {
   // collection in sorted order, as defined by their compareTo() method.
   public boolean insert(T data, K key) throws NullPointerException, IllegalArgumentException;
   public void rotate(T child, K childKey, T parent, K parentKey) throws IllegalArgumentException;
-  public boolean contains(T data);
-  public int size();
-  public boolean isEmpty();
+
   public void remove();
 
+  int size();
+
+  boolean isEmpty();
+
+  boolean contains(T data, K key);
 }

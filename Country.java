@@ -7,22 +7,14 @@ public class Country implements ICountry{
     String continent;
 
 
-    Country(String countryName1,int gold1,int silver1,int bronze1,int rank1,String continent1){
+    public Country(String countryName1, int gold1,int silver1,int bronze1,int rank1,String continent1){
         countryName = countryName1;
         gold = gold1;
         silver =silver1;
         bronze = bronze1;
         rank = rank1;
         continent = continent1;
-
     }
-
-
-
-
-
-
-
 
     @Override
     public String getName() {
