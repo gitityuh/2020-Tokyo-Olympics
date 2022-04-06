@@ -1,5 +1,10 @@
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.FileNotFoundException;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * This class tests the functionality of CountrySearcherFrontend
@@ -116,8 +121,49 @@ public class FrontendDeveloperTests {
   }
 
   /**
+   * Tests DataWrangler's Country class
+   */
+  @Test public void test8() {
+    CountryLoader loader = new CountryLoader();
+    try {
+      loader.loadData("no_file_here.xml");
+    } catch (FileNotFoundException ignored) {
+
+    } catch (Exception e) {
+      // returns false if any other Exception other than FileNotFoundException is thrown
+      fail();
+    }
+
+    try {
+      loader.loadData("Tokyo_Medals_2021.xml");
+    } catch (Exception e) {
+      // should not throw an exception
+      fail();
+    }
+  }
+
+  /**
+   * Tests if first Country loaded with CountryLoader is correct
+   */
+  @Test public void test9() {
+    CountryLoader loader = new CountryLoader();
+    List<ICountry> testList = null;
+    try {
+      testList = loader.loadData("Tokyo_Medals_2021.xml");
+    } catch (FileNotFoundException ignored) {
+
+    }
+
+    assert testList != null;
+    assertEquals(testList.get(0).getName(), "United States of America");
+    assertEquals(testList.get(0).getContinent(), "North America");
+    assertEquals(testList.get(0).getGoldMedals(), 39);
+    assertEquals(testList.get(0).getSilverMedals(), 41);
+    assertEquals(testList.get(0).getBronzeMedals(), 33);
+  }
+
+  /**
    * Main method to run the frontend UI
-   * @param args
    */
   public static void main(String[] args) {
     CountrySearcherBackendFrontend backend = new CountrySearcherBackendFrontend();
