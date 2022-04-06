@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class FrontendCountrySearcherBackend implements ICountrySearcherBackend{
+public class CountryLoaderBackendFrontendPlaceholder implements ICountrySearcherBackend{
   private boolean africaToggle;
   private boolean asiaToggle;
   private boolean ausToggle;

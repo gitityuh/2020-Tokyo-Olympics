@@ -10,7 +10,7 @@ public class BackendDeveloperTests {
      * code so for now it is hardcoded
      */
     @Test public void test1() {
-        OlympicsBackend backend = new OlympicsBackend();
+        CountrySearcherBackend backend = new CountrySearcherBackend();
         CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
         CountryBackend country2 =
             new CountryBackend(10, 1, 2, "north america", "North American Country");
@@ -27,7 +27,7 @@ public class BackendDeveloperTests {
      * the insert is hard coded
      */
     @Test public void test2() {
-        OlympicsBackend backend = new OlympicsBackend();
+        CountrySearcherBackend backend = new CountrySearcherBackend();
         CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
         CountryBackend country2 = new CountryBackend(10, 1, 2, "asia", "Asian Country");
         backend.addCountry(country1);
@@ -45,7 +45,7 @@ public class BackendDeveloperTests {
      * therefore in this case African country should be the root
      */
     @Test public  void test3() {
-        OlympicsBackend backend = new OlympicsBackend();
+        CountrySearcherBackend backend = new CountrySearcherBackend();
         CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
         CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "North American Country");
         backend.addCountry(country1);
@@ -61,7 +61,7 @@ public class BackendDeveloperTests {
      *
      */
     @Test public void test4() {
-        OlympicsBackend backend = new OlympicsBackend();
+        CountrySearcherBackend backend = new CountrySearcherBackend();
         CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
         CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "North American Country");
         backend.addCountry(country1);
@@ -83,7 +83,7 @@ public class BackendDeveloperTests {
      *
      */
     @Test public void test5() {
-        OlympicsBackend backend = new OlympicsBackend();
+        CountrySearcherBackend backend = new CountrySearcherBackend();
         CountryBackend country1 = new CountryBackend(5, 4, 2, "africa", "African Country");
         CountryBackend country2 = new CountryBackend(10, 1, 2, "north america", "North American Country");
         backend.addCountry(country1);

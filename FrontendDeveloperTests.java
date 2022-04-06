@@ -10,7 +10,7 @@ public class FrontendDeveloperTests {
    * Tests the Quit functionality
    */
   @Test public void test1() {
-    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
+    CountryLoaderBackendFrontendPlaceholder backend = new CountryLoaderBackendFrontendPlaceholder();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
@@ -24,7 +24,7 @@ public class FrontendDeveloperTests {
    * Tests the Countries by Medals functionality
    */
   @Test public void test2() {
-    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
+    CountryLoaderBackendFrontendPlaceholder backend = new CountryLoaderBackendFrontendPlaceholder();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
@@ -38,7 +38,7 @@ public class FrontendDeveloperTests {
    * Tests the Countries in Alphabetical Order functionality
    */
   @Test public void test3() {
-    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
+    CountryLoaderBackendFrontendPlaceholder backend = new CountryLoaderBackendFrontendPlaceholder();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
@@ -56,7 +56,7 @@ public class FrontendDeveloperTests {
    * Tests the Medals by FrontendCountry functionality
    */
   @Test public void test4() {
-    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
+    CountryLoaderBackendFrontendPlaceholder backend = new CountryLoaderBackendFrontendPlaceholder();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
@@ -73,7 +73,7 @@ public class FrontendDeveloperTests {
    * Tests the Filter by Continent functionality
    */
   @Test public void test5() {
-    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
+    CountryLoaderBackendFrontendPlaceholder backend = new CountryLoaderBackendFrontendPlaceholder();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
@@ -90,7 +90,7 @@ public class FrontendDeveloperTests {
    * @param args
    */
   public static void main(String[] args) {
-    FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
+    CountryLoaderBackendFrontendPlaceholder backend = new CountryLoaderBackendFrontendPlaceholder();
     CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend);
   }
 

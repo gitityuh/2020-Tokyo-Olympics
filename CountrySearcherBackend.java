@@ -6,7 +6,7 @@ import java.util.List;
  * and uses its to create a class that utilizes Red black trees to sort through data on country's
  * olympic performances
  */
-public class OlympicsBackend implements ICountrySearcherBackend {
+public class CountrySearcherBackend implements ICountrySearcherBackend {
     //trees are only public because I need to access them for the test for now will change back to private after merge
     //will also change into proper redBlackTree type
     //these red black trees are used for the old tests
