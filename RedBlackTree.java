@@ -14,20 +14,21 @@ import java.util.*;
  * a regular binary search tree, and its toString method to display a level-order
  * traversal of the tree.
  */
-public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionInterface<T>, IRedBlackTrees<T> {
+public class RedBlackTree<T extends Country, K extends Comparable<K>> implements SortedCollectionInterface<T, K>, IRedBlackTrees<T, K> {
 
-    protected ArrayList<T> countryList = new ArrayList<>();
+    protected ArrayList<Country> countryList = new ArrayList<>();
     /**
      * This class represents a node holding a single value within a binary tree
      * the parent, left, and right child references are always maintained.
      */
-    protected static class Node<T> {
-        public T data;
+    protected static class Node<T, K> {
+        public Country data;
+        public K key;
         public int blackHeight = 0;
-        public Node<T> parent; // null for root node
-        public Node<T> leftChild;
-        public Node<T> rightChild;
-        public Node(T data) { this.data = data; }
+        public Node<T, K> parent; // null for root node
+        public Node<T, K> leftChild;
+        public Node<T, K> rightChild;
+        public Node(Country data, K key) { this.data = data; this.key = key;}
         /**
          * @return true when this node has a parent and is the left child of
          * that parent, otherwise return false
@@ -38,7 +39,7 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
 
     }
 
-    protected Node<T> root; // reference to root node of tree, null when empty
+    protected Node<T, K> root; // reference to root node of tree, null when empty
     protected int size = 0; // the number of values in the tree
 
     /**
@@ -53,12 +54,12 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
      *      equal data references
      */
     @Override
-    public boolean insert(T data) throws NullPointerException, IllegalArgumentException {
+    public boolean insert(T data, K key) throws NullPointerException, IllegalArgumentException {
         // null references cannot be stored within this tree
         if(data == null) throw new NullPointerException(
                 "This RedBlackTree cannot store null references.");
 
-        Node<T> newNode = new Node<>(data);
+        Node<T, K> newNode = new Node<>(data, key);
         if(root == null) { root = newNode; size++; this.root.blackHeight = 1; return true; } // add first node to an empty tree
         else{
             boolean returnValue = insertHelper(newNode,root); // recursively insert into subtree
@@ -71,7 +72,7 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
         }
     }
 
-    protected Node<T> getSib(Node<T> currNode){
+    protected Node<T, K> getSib(Node<T, K> currNode){
         boolean NILNode = false;
 
         if (currNode.data == null) {
@@ -103,7 +104,7 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
     }
 
 
-    public void remove(Node <T> rmNode) throws NullPointerException , IllegalArgumentException {
+    public void remove(Node <T, K> rmNode) throws NullPointerException , IllegalArgumentException {
         if(rmNode == null) {throw new NullPointerException(
                 "This RedBlackTree does not store null references.");}
 
@@ -446,13 +447,22 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
      *      newNode should be inserted as a descenedent beneath
      * @return true is the value was inserted in subtree, false if not
      */
-    private boolean insertHelper(Node<T> newNode, Node<T> subtree) {
-        int compare = newNode.data.compareTo(subtree.data);
+    private boolean insertHelper(Node<T, K> newNode, Node<T, K> subtree) {
+        int compare = newNode.key.compareTo(subtree.key);
         // do not allow duplicate values to be stored within this tree
-        if(compare == 0) return false;
-
+        if(compare == 0) {
+            if (newNode.data.countryName.compareTo(subtree.data.countryName) < 0){
+                    compare = -1;
+            }
+            else if (newNode.data.countryName.compareTo(subtree.data.countryName) < 0){
+                compare = 1;
+            }
+            else {
+                return false;
+            }
+        }
             // store newNode within left subtree of subtree
-        else if(compare < 0) {
+        if(compare < 0) {
             if(subtree.leftChild == null) { // left subtree empty, add here
                 subtree.leftChild = newNode;
                 newNode.parent = subtree;
@@ -475,7 +485,7 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
     }
 
 
-    protected void enforceRBTreePropertiesAfterInsert(Node<T> newNode) {
+    protected void enforceRBTreePropertiesAfterInsert(Node<T, K> newNode) {
         if (this.root.equals(newNode)) {
             newNode.blackHeight = 1;
             this.root = newNode;
@@ -491,13 +501,13 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
         else if (newNode.parent.blackHeight == 0) {
 
             //parent side is right
-            if (newNode.parent.data.compareTo(newNode.parent.parent.data) == 1) {
+            if (! newNode.parent.isLeftChild()) {
 
                 //if uncle is null or black
                 if (newNode.parent.parent.leftChild == null || newNode.parent.parent.leftChild.blackHeight == 1) {
 
                     //child side is left (RL)
-                    if (newNode.data.compareTo(newNode.parent.data) == -1) {
+                    if (newNode.isLeftChild()) {
                         newNode.rightChild = newNode.parent;
                         newNode.rightChild.leftChild = null;
                         newNode.parent = newNode.rightChild.parent;
@@ -548,13 +558,13 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
             }
 
             //parent side is left
-            else if (newNode.parent.data.compareTo(newNode.parent.parent.data) == -1) {
+            else if (newNode.parent.isLeftChild()) {
 
                 //if uncle is null or black
                 if (newNode.parent.parent.rightChild == null || newNode.parent.parent.rightChild.blackHeight == 1) {
 
                     //child side is left (LR)
-                    if (newNode.data.compareTo(newNode.parent.data) == 1) {
+                    if (! newNode.isLeftChild()) {
 
                         newNode.leftChild = newNode.parent;
                         newNode.leftChild.rightChild = null;
@@ -624,7 +634,7 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
      * @throws IllegalArgumentException when the provided child and parent
      *      node references are not initially (pre-rotation) related that way
      */
-    private void rotate(Node<T> child, Node<T> parent) throws IllegalArgumentException {
+    private void rotate(Node<T, K> child, Node<T, K> parent) throws IllegalArgumentException {
         if(child.isLeftChild()) {
             parent.leftChild = child.rightChild;
 
@@ -693,11 +703,11 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
      * @return true if *data* is in the tree, false if it is not in the tree
      */
     @Override
-    public boolean contains(T data) {
+    public boolean contains(T data, K key) {
         // null references will not be stored within this tree
         if(data == null) throw new NullPointerException(
                 "This RedBlackTree cannot store null references.");
-        return this.containsHelper(data, root);
+        return this.containsHelper(data, key, root);
     }
 
     /**
@@ -707,23 +717,31 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
      * @param subtree the subtree to search through
      * @return true of the value is in the subtree, false if not
      */
-    private boolean containsHelper(T data, Node<T> subtree) {
+    private boolean containsHelper(T data, K key, Node<T, K> subtree) {
         if (subtree == null) {
             // we are at a null child, value is not in tree
             return false;
-        } else {
-            int compare = data.compareTo(subtree.data);
-            if (compare < 0) {
+        }
+        else {
+            int compare = key.compareTo(subtree.key);
+
+            if (compare == 0) {
+                compare = data.countryName.compareTo(subtree.data.countryName);
+            }
+            else if (compare < 0) {
                 // go left in the tree
-                return containsHelper(data, subtree.leftChild);
-            } else if (compare > 0) {
+                return containsHelper(data, key, subtree.leftChild);
+            }
+            else if (compare > 0) {
                 // go right in the tree
-                return containsHelper(data, subtree.rightChild);
-            } else {
+                return containsHelper(data, key, subtree.rightChild);
+            }
+            else {
                 // we found it :)
                 return true;
             }
         }
+        return false;
     }
 
     /**
@@ -738,8 +756,8 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
         return new Iterator<T>() {
             // a stack and current reference store the progress of the traversal
             // so that we can return one value at a time with the Iterator
-            Stack<Node<T>> stack = null;
-            Node<T> current = root;
+            Stack<Node<T, K>> stack = null;
+            Node<T, K> current = root;
 
             /**
              * The next method is called for each value in the traversal sequence.
@@ -750,7 +768,7 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
             public T next() {
                 // if stack == null, we need to initialize the stack and current element
                 if (stack == null) {
-                    stack = new Stack<Node<T>>();
+                    stack = new Stack<Node<T, K>>();
                     current = root;
                 }
                 // go left as far as possible in the sub tree we are in un8til we hit a null
@@ -764,9 +782,9 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
                 // take the next element from the stack and return it, then start to step down
                 // its right subtree (set its right sub tree to current)
                 if (!stack.isEmpty()) {
-                    Node<T> processedNode = stack.pop();
+                    Node<T, K> processedNode = stack.pop();
                     current = processedNode.rightChild;
-                    return processedNode.data;
+                    return (T) processedNode.data;
                 } else {
                     // if the stack is empty, we are done with our traversal
                     throw new NoSuchElementException("There are no more elements in the tree");
@@ -830,10 +848,10 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
      */
     public String toLevelOrderString() {
         String output = "[ ";
-        LinkedList<Node<T>> q = new LinkedList<>();
+        LinkedList<Node<T, K>> q = new LinkedList<>();
         q.add(this.root);
         while(!q.isEmpty()) {
-            Node<T> next = q.removeFirst();
+            Node<T, K> next = q.removeFirst();
             if(next.leftChild != null) q.add(next.leftChild);
             if(next.rightChild != null) q.add(next.rightChild);
             output += next.data.toString();
@@ -848,12 +866,12 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
                 "/nin order: " + this.toInOrderString();
     }
 
-    public ArrayList<T> storeKeyValues(RedBlackTree.Node<T> root) {
+    public ArrayList<T> storeKeyValues(RedBlackTree.Node<T, K> root) {
         countryList = new ArrayList<>();
         treeTravel(root);
-        return countryList;
+        return (ArrayList<T>) countryList;
     }
-    private void treeTravel(RedBlackTree.Node<T> node) {
+    private void treeTravel(RedBlackTree.Node<T, K> node) {
         if (node != null) {
             treeTravel(node.leftChild);
             countryList.add(node.data);
@@ -876,9 +894,7 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
         //remove red leaf node
 
 
-        RBT.insert(5);
-        RBT.insert(8);
-        RBT.insert(7);
+
         //RBT.insert(12);
 
         //System.out.println(RBT.root.rightChild.leftChild.blackHeight);
