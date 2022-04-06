@@ -14,7 +14,7 @@ import java.util.*;
  * a regular binary search tree, and its toString method to display a level-order
  * traversal of the tree.
  */
-public class RedBlackTree<T extends Country, K extends Comparable<K>> implements SortedCollectionInterface<T, K>, IRedBlackTrees<T, K> {
+public class RedBlackTree<T extends Country, K extends Comparable<K>> implements IRedBlackTrees<T, K> {
 
     protected ArrayList<Country> countryList = new ArrayList<>();
     /**
@@ -828,7 +828,7 @@ public class RedBlackTree<T extends Country, K extends Comparable<K>> implements
         while (treeNodeIterator.hasNext()) {
             T data = treeNodeIterator.next();
             sb.append(", ");
-            sb.append(data.toString());
+            sb.append(data.countryName.toString());
         }
         sb.append(" ]");
         return sb.toString();
@@ -854,7 +854,7 @@ public class RedBlackTree<T extends Country, K extends Comparable<K>> implements
             Node<T, K> next = q.removeFirst();
             if(next.leftChild != null) q.add(next.leftChild);
             if(next.rightChild != null) q.add(next.rightChild);
-            output += next.data.toString();
+            output += next.data.countryName.toString();
             if(!q.isEmpty()) output += ", ";
         }
         return output + " ]";
@@ -889,7 +889,15 @@ public class RedBlackTree<T extends Country, K extends Comparable<K>> implements
      */
 
     public static void main(String[] args) {
-        RedBlackTree RBT = new RedBlackTree();
+        RedBlackTree<Country, Integer> RBT = new RedBlackTree();
+
+        Country America = new Country("America", 10 , 0, 0, 1, "A");
+        Country Sweeden = new Country("Sweeden", 2 , 0, 0, 1, "A");
+        Country AAA = new Country("AAA", 15 , 0, 0, 1, "A");
+
+       RBT.insert(America, America.getGoldMedals());
+       RBT.insert(Sweeden, 2);
+       RBT.insert(AAA, 15);
 
         //remove red leaf node
 
@@ -899,7 +907,7 @@ public class RedBlackTree<T extends Country, K extends Comparable<K>> implements
 
         //System.out.println(RBT.root.rightChild.leftChild.blackHeight);
         System.out.println(RBT.toLevelOrderString());
-        System.out.println(RBT.root.data);
+        //System.out.println(RBT.root.data);
 
 		/*
 		System.out.println(RBT.toLevelOrderString());
