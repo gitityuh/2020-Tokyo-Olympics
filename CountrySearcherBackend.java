@@ -37,6 +37,15 @@ public class CountrySearcherBackend implements ICountrySearcherBackend {
      * @param country
      */
     @Override public void addCountry(ICountry country) {
+        goldMedalTree.insert(country, country.getGoldMedals());
+        silverMedalTree.insert(country, country.getSilverMedals());
+        bronzeMedalTree.insert(country, country.getBronzeMedals());
+        //totalMedalTree.insert(country, country.getTotalMedals());
+        countryNameTree.insert(country, country.getName());
+    }
+
+    //have to create a method that uses last weeks trees for the old backendtest tests to work
+    public void addCountryBackendTests(ICountry country) {
         goldMedalTreeBackend.insert(country, country.getGoldMedals());
         silverMedalTreeBackend.insert(country, country.getSilverMedals());
         bronzeMedalTreeBackend.insert(country, country.getBronzeMedals());
@@ -76,6 +85,28 @@ public class CountrySearcherBackend implements ICountrySearcherBackend {
         // whether, the object exists within the red black tree, can change this to method to return
         //the value if it contains next week when mergeing next week, which might be a good idea
 
+        ArrayList<ICountry> countries = countryNameTree.storeKeyValues(
+            countryNameTree.root);
+        //another note the method above storeKeyValues, I added it to my version of the red black tree
+        //we can just give it to our algorithm engineer after merging
+        //it returns a sorted list from the red black tree of countries
+        countries = removeFiltered(countries);
+        for (int i = 0; i < countries.size(); i++) {
+            if (countries.get(i).getName().toLowerCase().equals(name.toLowerCase())) {
+                return countries.get(i);
+            }
+        }
+        System.out.println(
+            "this country is not within the current content filters?/ something went wrong");
+        return null;
+    }//end search by name
+
+    //backend test for last weeks backend with place holder class
+     public ICountry searchByNameBackendTest(String name) {
+        //for now the contains method within the IRedBlackTrees interface only returns a boolean if
+        // whether, the object exists within the red black tree, can change this to method to return
+        //the value if it contains next week when mergeing next week, which might be a good idea
+
         ArrayList<ICountry> countries = countryNameTreeBackend.storeKeyValues(
             countryNameTreeBackend.root);
         //another note the method above storeKeyValues, I added it to my version of the red black tree
@@ -90,7 +121,7 @@ public class CountrySearcherBackend implements ICountrySearcherBackend {
         System.out.println(
             "this country is not within the current content filters?/ something went wrong");
         return null;
-    }//end search by name
+    }//end search by name for backend tests
 
     //this is not used
     // @Override public List<ICountry> outputByTotalMedals() {
@@ -111,6 +142,30 @@ public class CountrySearcherBackend implements ICountrySearcherBackend {
     @Override public List<ICountry> outputByTypeOfMedals(String medalType) {
 
         if (medalType.toLowerCase().equals("gold")) {
+            ArrayList<ICountry> gold = goldMedalTree.storeKeyValues(goldMedalTree.root);
+            gold = removeFiltered(gold);
+            return gold;
+        } else if (medalType.toLowerCase().equals("silver")) {
+            ArrayList<ICountry> silver = silverMedalTree.storeKeyValues(
+                silverMedalTree.root);
+            silver = removeFiltered(silver);
+            return silver;
+        } else if (medalType.toLowerCase().equals("bronze")) {
+            ArrayList<ICountry> bronze = bronzeMedalTree.storeKeyValues(
+                bronzeMedalTree.root);
+            bronze = removeFiltered(bronze);
+            return bronze;
+        } else {
+            System.out.println("invalid medal type returning null");
+            return null;
+        }
+
+    }//end outputByTypeOfMedals
+
+    //this is method is here so that last weeks backend tests continue to work
+    public List<ICountry> outputByTypeOfMedalsBackendTest(String medalType) {
+
+        if (medalType.toLowerCase().equals("gold")) {
             ArrayList<ICountry> gold = goldMedalTreeBackend.storeKeyValues(goldMedalTreeBackend.root);
             gold = removeFiltered(gold);
             return gold;
@@ -129,7 +184,7 @@ public class CountrySearcherBackend implements ICountrySearcherBackend {
             return null;
         }
 
-    }
+    }//end backEnd outPut Medals order method
 
     /**
      * returns a list of countries with the contents filtered to match the continet filter sorted
@@ -138,11 +193,18 @@ public class CountrySearcherBackend implements ICountrySearcherBackend {
      * @return
      */
     @Override public List<ICountry> outputByAlphabeticalName() {
+        ArrayList<ICountry> alphabeticalName = countryNameTree.storeKeyValues(
+            countryNameTree.root);
+        alphabeticalName = removeFiltered(alphabeticalName);
+        return alphabeticalName;
+    }//end outputByAlphabeticalName
+
+    public List<ICountry> outputByAlphabeticalNameBackendTest() {
         ArrayList<ICountry> alphabeticalName = countryNameTreeBackend.storeKeyValues(
             countryNameTreeBackend.root);
         alphabeticalName = removeFiltered(alphabeticalName);
         return alphabeticalName;
-    }
+    }//end outputByAlphabeticalNameBackend
 
     /**
      * toggles the boolean values of the continentFilters
