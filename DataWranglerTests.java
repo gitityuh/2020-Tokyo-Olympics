@@ -69,5 +69,43 @@ public class DataWranglerTests {
     assertEquals(retList.get(10).getContinent(),"North America");
 
 }
+
+
+
+
+
+/**
+ * CODE REVIEW TESTS
+ * FRONTEND DEVELOPER
+ * Tests the Countries by Medals functionality
+ *
+ */
+    @Test public void testFE() {
+        FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
+        ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
+        // captures console output
+        outputCapturer.start();
+        CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "1\ngold\n5\n");
+        String output = outputCapturer.stop();
+        assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
+        assertTrue(output.contains("United States of America: 1"));
+    }
+
+/**
+ * Tests the Countries in Alphabetical Order functionality
+ */
+    @Test public void testFE2() {
+        FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
+        ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
+        // captures console output
+        outputCapturer.start();
+        CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "2\n5\n");
+        String output = outputCapturer.stop();
+        assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
+
+        assertTrue(output.contains("Australia"));
+        assertTrue(output.contains("China"));
+        assertTrue(output.contains("United States of America"));
+    }
 }
 
