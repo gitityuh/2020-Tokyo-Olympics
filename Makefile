@@ -1,33 +1,34 @@
-FrontendDeveloperTests: FrontendDeveloperTestsCompile
+run: CountrySearcherApp.java
+	javac CountrySearcherApp.java
+	java CountrySearcherApp
+
+runTests: runDataWranglerTests runFrontendDeveloperTests runBackendDeveloperTests runAlgorithmEngineerTests
+
+clean:
+	rm *.class
+
+runDataWranglerTests: DataWranglerTestsCompile
+	java -jar junit5.jar --class-path . --select-class DataWranglerTests
+
+DataWranglerTestsCompile: DataWranglerTests.java
+	javac -cp .:junit5.jar DataWranglerTests.java
+
+runFrontendDeveloperTests: FrontendDeveloperTestsCompile
 	java -jar junit5.jar --class-path . --select-class FrontendDeveloperTests
 
 FrontendDeveloperTestsCompile: FrontendDeveloperTests.java
 	javac -cp junit5.jar:. FrontendDeveloperTests.java
 
+runBackendDeveloperTests: BackendDeveloperTestsCompile
+	java -jar junit5.jar --class-path . --select-class BackendDeveloperTests
 
-runBackendDeveloperTests: BackendDeveloperTestCompile
-	java -jar junit5.jar -- class-path . --select-class BackendDeveloperTests
-
-
-
-BackendDeveloperTestCompile: BackendDeveloperTests.java
+BackendDeveloperTestsCompile: BackendDeveloperTests.java
 	javac -cp junit5.jar:. BackendDeveloperTests.java
 
-clean:
-	rm *.class
+runAlgorithmEngineerTests: AlgorithmEngineerTestsCompile
+	java -jar junit5.jar --class-path . --select-class AlgorithmEngineerTests
 
-
-
-
-runDatatWranglerTests: DataWranglerTests 
-	javac  -cp .:junit5.jar CountryLoader.java
-	
-	javac  -cp .:junit5.jar Country.java
-
-DataWranglerTests: DataWranglerTests.class
-	java -jar junit5.jar --class-path . --scan-classpath
-
-DataWranglerTests.class: DataWranglerTests.java
-	javac -cp .:junit5.jar DataWranglerTests.java -Xlint
+AlgorithmEngineerTestsCompile: AlgorithmEngineerTests.java
+	javac -cp .:junit5.jar AlgorithmEngineerTests.java
 
 
