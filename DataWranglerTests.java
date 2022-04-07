@@ -80,32 +80,58 @@ public class DataWranglerTests {
  * Tests the Countries by Medals functionality
  *
  */
-    @Test public void testFE() {
-        countrySearcherBackend backend = new countrySearcherBackend();
-        ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
-        // captures console output
-        outputCapturer.start();
-        CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "1\ngold\n5\n");
-        String output = outputCapturer.stop();
-        assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
-        assertTrue(output.contains("United States of America: 1"));
-    }
 
-/**
- * Tests the Countries in Alphabetical Order functionality
- */
-    @Test public void testFE2() {
-        countrySearcherBackend backend = new countrySearcherBackend();
-        ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
-        // captures console output
-        outputCapturer.start();
-        CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "2\n5\n");
-        String output = outputCapturer.stop();
-        assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
 
-        assertTrue(output.contains("Australia"));
-        assertTrue(output.contains("China"));
-        assertTrue(output.contains("United States of America"));
-    }
+ @Test public void test2() {
+    CountrySearcherBackendFrontend backend = new CountrySearcherBackendFrontend();
+    ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
+    // captures console output
+    outputCapturer.start();
+    CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "1\ngold\n5\n");
+    String output = outputCapturer.stop();
+    assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
+    assertTrue(output.contains("United States of America: 1"));
+  }
+  /**
+   * Tests the Countries in Alphabetical Order functionality
+   */
+  @Test public void test3() {
+    CountrySearcherBackendFrontend backend = new CountrySearcherBackendFrontend();
+    ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
+    // captures console output
+    outputCapturer.start();
+    CountrySearcherFrontend frontend = new CountrySearcherFrontend(backend, "2\n5\n");
+    String output = outputCapturer.stop();
+    assertTrue(output.startsWith("Welcome to the FrontendCountry Searcher App!"));
+    // this will depend on the implementation of compareTo, but for now the following tests all
+    // countries I added manually:
+    assertTrue(output.contains("Australia"));
+    assertTrue(output.contains("China"));
+    assertTrue(output.contains("United States of America"));
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
