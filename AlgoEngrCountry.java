@@ -1,8 +1,10 @@
 public class AlgoEngrCountry implements ICountry {
 
     public int goldData;
-    AlgoEngrCountry(int numGolds){
+    public String countryName;
+    AlgoEngrCountry(String name, int numGolds){
         goldData = numGolds;
+        countryName = name;
     }
     @Override
     public String getName() {

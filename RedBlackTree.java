@@ -854,7 +854,7 @@ public class RedBlackTree<T extends ICountry, K extends Comparable<K>> implement
             Node<T, K> next = q.removeFirst();
             if(next.leftChild != null) q.add(next.leftChild);
             if(next.rightChild != null) q.add(next.rightChild);
-            output += next.data.getName().toString();
+            output += next.data.getName().toString() + ": " + next.key;
             if(!q.isEmpty()) output += ", ";
         }
         return output + " ]";
