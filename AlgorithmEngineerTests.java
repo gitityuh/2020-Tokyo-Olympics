@@ -3,6 +3,9 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AlgorithmEngineerTests {
+    int red = 0;
+    int black = 1;
+
     AlgoEngrCountry America = new AlgoEngrCountry("America", 10);
     AlgoEngrCountry Australia = new AlgoEngrCountry("Australia", 5);
     AlgoEngrCountry China = new AlgoEngrCountry("China", 20);
@@ -16,8 +19,7 @@ class AlgorithmEngineerTests {
 
     @Test
     void test1() {
-        int red = 0;
-        int black = 1;
+
         RedBlackTree RBT = new RedBlackTree();
 
         RBT.insert(America, 10);
@@ -71,7 +73,10 @@ class AlgorithmEngineerTests {
 
         //Test double rotation with a recall
         //same tree as above; nodes tested for color above
+    }
 
+    @Test
+    void test2() {
         RedBlackTree RBT2 = new RedBlackTree();
         RBT2.insert(America, 10);
         RBT2.insert(China, 15);
@@ -84,7 +89,7 @@ class AlgorithmEngineerTests {
         //new node > 25
         RBT2.insert(Netherlands, 22);
 
-        result = RBT2.toLevelOrderString();
+        String result = RBT2.toLevelOrderString();
         assertEquals("[ China: 15, America: 10, Denmark: 20, Australia: 5, Ethiopia: 12, France: 16, Germany: 25, Netherlands: 22 ]", result);
         assertEquals(red, RBT2.root.rightChild.blackHeight);
         assertEquals(black, RBT2.root.rightChild.leftChild.blackHeight);
@@ -97,8 +102,9 @@ class AlgorithmEngineerTests {
 
     }
 
+
     @Test
-    void test2() {
+    void test3() {
         {
             RedBlackTree RBT = new RedBlackTree();
 
@@ -133,10 +139,15 @@ class AlgorithmEngineerTests {
             RBT.insert(France,16);
             RBT.insert(Denmark,20);
 
-            assertEquals("[ 10, 5, 12, 11, 18, 16, 20 ]", RBT.toLevelOrderString());
+            String expected = "[ America: 10, Australia: 5, Ethiopia: 12, Germany: 11, Denmark: 18, France: 16, Denmark: 20 ]";
+
+            assertEquals(expected, RBT.toLevelOrderString());
             assertEquals(0, RBT.root.rightChild.rightChild.rightChild.blackHeight);
 
             RBT.insert(Mexico,30);
+
+            expected = "[ Ethiopia: 12, America: 10, Denmark: 18,  Australia: 5,  Germany: 11, France: 16, Denmark: 20, Mexico: 30 ]";
+
             assertEquals("[ 12, 10, 18, 5, 11, 16, 20, 30 ]", RBT.toLevelOrderString());
             assertEquals(0, RBT.root.rightChild.rightChild.rightChild.blackHeight);
             assertEquals(1, RBT.root.rightChild.leftChild.blackHeight);
@@ -147,7 +158,7 @@ class AlgorithmEngineerTests {
 /*
     }
     @Test
-    void test3() {
+    void test4() {
 
         //test remove black sib, null uncle, interior node
         RedBlackTree RBT = new RedBlackTree();
