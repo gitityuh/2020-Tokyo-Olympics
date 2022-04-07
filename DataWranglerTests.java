@@ -17,7 +17,7 @@ public class DataWranglerTests {
      */
     @Test
     void testXMLFile(){
-        File testfile = new File("/home/ggervasio/Project2_DN_red/Tokyo_Medals_2021.xml");
+        File testfile = new File("./Tokyo_Medals_2021.xml");
        assertTrue ( testfile.canRead());
     }
     /*
@@ -29,7 +29,7 @@ public class DataWranglerTests {
         List<ICountry> retList = new ArrayList<>();
 
 
-            retList = test.loadData("/home/ggervasio/Project2_DN_red/Tokyo_Medals_2021.xml");
+            retList = test.loadData("./Tokyo_Medals_2021.xml");
 
 
        assertEquals( retList.get(0).getName(),("United States of America"));
@@ -46,7 +46,7 @@ public class DataWranglerTests {
         List<ICountry> retList = new ArrayList<>();
 
 
-       retList = test.loadData("/home/ggervasio/Project2_DN_red/Tokyo_Medals_2021.xml");
+       retList = test.loadData("./Tokyo_Medals_2021.xml");
 
         assertEquals(retList.get(5).getGoldMedals() + retList.get(5).getBronzeMedals() + retList.get(5).getSilverMedals(), 46);
 
@@ -55,7 +55,7 @@ public class DataWranglerTests {
     void testGetRank() throws FileNotFoundException{
     CountryLoader test = new CountryLoader();
     List<ICountry> retList = new ArrayList<>();
-    retList = test.loadData("/home/ggervasio/Project2_DN_red/Tokyo_Medals_2021.xml");
+    retList = test.loadData("./Tokyo_Medals_2021.xml");
 
     assertEquals(retList.get(0).getRank(),1);
 
@@ -64,7 +64,7 @@ public class DataWranglerTests {
     void testGetContinent() throws FileNotFoundException {
     CountryLoader test = new CountryLoader();
     List<ICountry> retList = new ArrayList<>();
-    retList = test.loadData("/home/ggervasio/Project2_DN_red/Tokyo_Medals_2021.xml");
+    retList = test.loadData("./Tokyo_Medals_2021.xml");
 
     assertEquals(retList.get(10).getContinent(),"North America");
 
