@@ -81,7 +81,7 @@ public class DataWranglerTests {
  *
  */
     @Test public void testFE() {
-        FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
+        countrySearcherBackend backend = new countrySearcherBackend();
         ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
         // captures console output
         outputCapturer.start();
@@ -95,7 +95,7 @@ public class DataWranglerTests {
  * Tests the Countries in Alphabetical Order functionality
  */
     @Test public void testFE2() {
-        FrontendCountrySearcherBackend backend = new FrontendCountrySearcherBackend();
+        countrySearcherBackend backend = new countrySearcherBackend();
         ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
         // captures console output
         outputCapturer.start();
