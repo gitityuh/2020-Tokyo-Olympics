@@ -1,8 +1,9 @@
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class AlgorithmEngineerTests {
+public class AlgorithmEngineerTests {
     int red = 0;
     int black = 1;
 
@@ -15,11 +16,14 @@ class AlgorithmEngineerTests {
     AlgoEngrCountry Germany = new AlgoEngrCountry("Germany", 25);
     AlgoEngrCountry Mexico = new AlgoEngrCountry("Mexico", 30);
     AlgoEngrCountry Netherlands = new AlgoEngrCountry("Netherlands", 22);
+    AlgoEngrCountry Poland = new AlgoEngrCountry("Poland", 10);
 
-
+    /**
+     * This test focuses on simple testing simple inserts with single rotations
+     */
     @Test
-    void test1() {
-
+    public void test1() {
+        //simple insert
         RedBlackTree RBT = new RedBlackTree();
 
         RBT.insert(America, 10);
@@ -70,13 +74,14 @@ class AlgorithmEngineerTests {
             assertEquals(black, RBT2.root.leftChild.rightChild.blackHeight);
         }
 
-
-        //Test double rotation with a recall
-        //same tree as above; nodes tested for color above
     }
 
+    /**
+     * The method tests a double rotation with re-calls to the insert helper method,
+     * a complicated insert case.
+     */
     @Test
-    void test2() {
+    public void test2() {
         RedBlackTree RBT2 = new RedBlackTree();
         RBT2.insert(America, 10);
         RBT2.insert(China, 15);
@@ -102,17 +107,22 @@ class AlgorithmEngineerTests {
 
     }
 
-
+    /**
+     * This method focuses on the remove node method.
+     *
+     * NOTE: Nodes are only accessed from pointer references as after implementation
+     * we decided as a group we did not need to remove node by data
+     */
     @Test
-    void test3() {
+    public void test3() {
         {
             RedBlackTree RBT = new RedBlackTree();
 
             //remove red leaf node
-            RBT.insert(America,10);
-            RBT.insert(France,16);
-            RBT.insert(Australia,5);
-            RBT.insert(Ethiopia,12);
+            RBT.insert(America, 10);
+            RBT.insert(France, 16);
+            RBT.insert(Australia, 5);
+            RBT.insert(Ethiopia, 12);
 
             assertEquals(0, RBT.root.rightChild.leftChild.blackHeight);
 
@@ -123,8 +133,8 @@ class AlgorithmEngineerTests {
             assertEquals(1, RBT.root.leftChild.blackHeight);
 
             //remove interior black node
-            RBT.insert(Ethiopia,12);
-            RBT.insert(Denmark,18);
+            RBT.insert(Ethiopia, 12);
+            RBT.insert(Denmark, 18);
             assertEquals(1, RBT.root.rightChild.blackHeight);
 
             RBT.remove(RBT.root.rightChild);
@@ -134,53 +144,74 @@ class AlgorithmEngineerTests {
             assertEquals(1, RBT.root.rightChild.blackHeight);
             assertEquals(0, RBT.root.rightChild.rightChild.blackHeight);
 
-            //red uncle, DB recall with red uncle
-            RBT.insert(Germany,11);
-            RBT.insert(France,16);
-            RBT.insert(Denmark,20);
+            //red uncle, double black recall with red uncle
+            RBT.insert(Germany, 11);
+            RBT.insert(France, 16);
+            RBT.insert(Denmark, 20);
 
             String expected = "[ America: 10, Australia: 5, Ethiopia: 12, Germany: 11, Denmark: 18, France: 16, Denmark: 20 ]";
 
             assertEquals(expected, RBT.toLevelOrderString());
             assertEquals(0, RBT.root.rightChild.rightChild.rightChild.blackHeight);
 
-            RBT.insert(Mexico,30);
+            RBT.insert(Mexico, 30);
 
             expected = "[ Ethiopia: 12, America: 10, Denmark: 18,  Australia: 5,  Germany: 11, France: 16, Denmark: 20, Mexico: 30 ]";
 
-            assertEquals("[ 12, 10, 18, 5, 11, 16, 20, 30 ]", RBT.toLevelOrderString());
+            assertEquals("[ Ethiopia: 12, America: 10, Denmark: 18, Australia: 5, Germany: 11, France: 16, Denmark: 20, Mexico: 30 ]", RBT.toLevelOrderString());
             assertEquals(0, RBT.root.rightChild.rightChild.rightChild.blackHeight);
             assertEquals(1, RBT.root.rightChild.leftChild.blackHeight);
 
         }
+        {
+
+            //test remove black sib, null uncle, interior node
+            RedBlackTree RBT = new RedBlackTree();
+
+            RBT.insert(America, 10);
+            RBT.insert(Australia, 5);
+            RBT.insert(Mexico, 30);
+            RBT.insert(Denmark, 1);
+            RBT.insert(France, 7);
+            RBT.insert(Germany, 25);
+            RBT.insert(China, 40);
+            RBT.insert(Netherlands, 20);
+            RBT.insert(Poland, 28);
 
 
-/*
+            RBT.remove(RBT.root.rightChild);
+
+            String expected = "[ America: 10, Australia: 5, Poland: 28, Denmark: 1, France: 7, Germany: 25, China: 40, Netherlands: 20 ]";
+
+
+            assertEquals(expected, RBT.toLevelOrderString());
+            assertEquals(1, RBT.root.rightChild.leftChild.blackHeight);
+            assertEquals(0, RBT.root.rightChild.leftChild.leftChild.blackHeight);
+        }
     }
+
+    /**
+     * This test focuses on inserting countries with key collisions
+     */
     @Test
-    void test4() {
+    public void test4() {
 
         //test remove black sib, null uncle, interior node
         RedBlackTree RBT = new RedBlackTree();
 
-        RBT.insert(10);
-        RBT.insert(5);
-        RBT.insert(30);
-        RBT.insert(1);
-        RBT.insert(7);
-        RBT.insert(25);
-        RBT.insert(40);
-        RBT.insert(20);
-        RBT.insert(28);
+        RBT.insert(America, 10);
+        RBT.insert(Australia,5);
+        RBT.insert(Mexico,30);
+        RBT.insert(Denmark,10);
 
 
-        RBT.remove(RBT.root.rightChild);
 
-
-        assertEquals("[ 10, 5, 28, 1, 7, 25, 40, 20 ]", RBT.toLevelOrderString());
-        assertEquals(1, RBT.root.rightChild.leftChild.blackHeight);
-        assertEquals(0, RBT.root.rightChild.leftChild.leftChild.blackHeight);
+        assertEquals("[ America: 10, Australia: 5, Mexico: 30, Denmark: 10 ]", RBT.toLevelOrderString());
+        assertEquals("[ Australia, America, Denmark, Mexico ]", RBT.toInOrderString());
+        assertEquals(0, RBT.root.rightChild.leftChild.blackHeight);
+        assertEquals(1, RBT.root.leftChild.blackHeight);
     }
+    /*
     @Test
     void test4() {
         //Single right rotation about root
@@ -278,6 +309,6 @@ class AlgorithmEngineerTests {
         }*/
 
     }
-}
+
 
 

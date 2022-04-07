@@ -8,7 +8,7 @@ public class AlgoEngrCountry implements ICountry {
     }
     @Override
     public String getName() {
-        return null;
+        return countryName;
     }
 
     @Override

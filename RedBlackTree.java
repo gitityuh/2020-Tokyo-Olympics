@@ -111,7 +111,7 @@ public class RedBlackTree<T extends ICountry, K extends Comparable<K>> implement
     	/*if (this.contains(rmNode.data) == false) {
     		throw new IllegalArgumentException("Node is not in tree.");
     	}*/
-        System.out.println("remove called");
+
 
         //case 0: internal node
         if (rmNode.leftChild != null && rmNode.rightChild != null) {
@@ -170,7 +170,7 @@ public class RedBlackTree<T extends ICountry, K extends Comparable<K>> implement
 
         //case 1: if node is red leaf or 1 sib node
         else if (rmNode.blackHeight == 0) {
-            System.out.println("red leaf test");
+
             Node currNode = rmNode;
 
             if (currNode.rightChild != null) {
@@ -247,7 +247,6 @@ public class RedBlackTree<T extends ICountry, K extends Comparable<K>> implement
 
         else if (rmNode.blackHeight == 2) {
 
-            System.out.println("testDB");
             //case 2: DB is root
             if (rmNode.blackHeight == 2 && root.data.equals(rmNode.data)) {
                 rmNode.blackHeight = 1;
@@ -305,7 +304,7 @@ public class RedBlackTree<T extends ICountry, K extends Comparable<K>> implement
             }
             //case 4 if DB sib is red
             if (getSib(rmNode) != null && getSib(rmNode).blackHeight == 0) {
-                System.out.println("test4");
+
                 //swap parent and sib color
                 int parentColor = rmNode.parent.blackHeight;
                 int sibColor = getSib(rmNode).blackHeight;
@@ -330,7 +329,7 @@ public class RedBlackTree<T extends ICountry, K extends Comparable<K>> implement
             }
 
             if (getSib(rmNode) != null && getSib(rmNode).blackHeight == 1) {
-                System.out.println("test5");
+
 
                 //if DB is left side, sib is right
                 if (rmNode.parent.rightChild != null &&
@@ -381,7 +380,7 @@ public class RedBlackTree<T extends ICountry, K extends Comparable<K>> implement
 
             //case 6: DB sib is black, sib far child is red
             if (getSib(rmNode) != null && getSib(rmNode).blackHeight == 1) {
-                System.out.println("test6");
+
 
                 //if DB is left side, sib is right
                 if (rmNode.parent.rightChild.data != null &&
@@ -454,7 +453,7 @@ public class RedBlackTree<T extends ICountry, K extends Comparable<K>> implement
             if (newNode.data.getName().compareTo(subtree.data.getName()) < 0){
                     compare = -1;
             }
-            else if (newNode.data.getName().compareTo(subtree.data.getName()) < 0){
+            else if (newNode.data.getName().compareTo(subtree.data.getName()) > 0){
                 compare = 1;
             }
             else {
@@ -824,7 +823,7 @@ public class RedBlackTree<T extends ICountry, K extends Comparable<K>> implement
         StringBuffer sb = new StringBuffer();
         sb.append("[ ");
         if (treeNodeIterator.hasNext())
-            sb.append(treeNodeIterator.next());
+            sb.append(treeNodeIterator.next().getName());
         while (treeNodeIterator.hasNext()) {
             T data = treeNodeIterator.next();
             sb.append(", ");
