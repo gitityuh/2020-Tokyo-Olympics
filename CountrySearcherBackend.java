@@ -111,7 +111,7 @@ public class CountrySearcherBackend implements ICountrySearcherBackend {
             countryNameTreeBackend.root);
         //another note the method above storeKeyValues, I added it to my version of the red black tree
         //we can just give it to our algorithm engineer after merging
-        //it returns a sorted list from the red black tree of countries
+        //it returns a sorted list from the red black tree of countries, InOrder Sort
         countries = removeFiltered(countries);
         for (int i = 0; i < countries.size(); i++) {
             if (countries.get(i).getName().toLowerCase().equals(name.toLowerCase())) {
@@ -240,36 +240,42 @@ public class CountrySearcherBackend implements ICountrySearcherBackend {
             for (int i = 0; i < countries.size(); i++) {
                 if (countries.get(i).getContinent().toLowerCase().equals("africa")) {
                     countries.remove(i);
+                    i = i -1;
                 }
             }
         } else if (asiaToggle == false) {
             for (int i = 0; i < countries.size(); i++) {
                 if (countries.get(i).getContinent().toLowerCase().equals("asia")) {
                     countries.remove(i);
+                    i = i -1;
                 }
             }
         } else if (ausToggle == false) {
             for (int i = 0; i < countries.size(); i++) {
                 if (countries.get(i).getContinent().toLowerCase().equals("oceania")) {
                     countries.remove(i);
+                    i = i -1;
                 }
             }
         } else if (europeToggle == false) {
             for (int i = 0; i < countries.size(); i++) {
                 if (countries.get(i).getContinent().toLowerCase().equals("europe")) {
                     countries.remove(i);
+                    i = i -1;
                 }
             }
         } else if (naToggle == false) {
             for (int i = 0; i < countries.size(); i++) {
                 if (countries.get(i).getContinent().toLowerCase().equals("north america")) {
                     countries.remove(i);
+                    i = i -1;
                 }
             }
         } else if (saToggle == false) {
             for (int i = 0; i < countries.size(); i++) {
                 if (countries.get(i).getContinent().toLowerCase().equals("south america")) {
                     countries.remove(i);
+                    i = i -1;
                 }
             }
         }

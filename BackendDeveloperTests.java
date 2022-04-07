@@ -116,8 +116,8 @@ public class BackendDeveloperTests {
         backend.addCountry(country1);
         backend.addCountry(country2);
         List<ICountry> countriesGoldmedal = backend.outputByTypeOfMedals("gold");
-        assertEquals(countriesGoldmedal.get(1), country1);
-        assertEquals(countriesGoldmedal.get(0), country2);
+        assertEquals(countriesGoldmedal.get(1), country2);
+        assertEquals(countriesGoldmedal.get(0), country1);
     }
 
     /**
@@ -161,9 +161,13 @@ public class BackendDeveloperTests {
         backend.addCountry(country3);
         backend.addCountry(country4);
         backend.addCountry(country5);
-        List<ICountry> countriesNames = backend.outputByAlphabeticalName();
+
         //toggling off north american continent
         backend.toggleContinentFilter(5);
+        List<ICountry> countriesNames = backend.outputByAlphabeticalName();
+        for(int i = 0; i < countriesNames.size(); i ++){
+            System.out.println(countriesNames.get(i).getName());
+        }
         assertEquals(countriesNames.get(1), country4);
         assertEquals(countriesNames.get(0), country1);
     }//end test 8
@@ -187,9 +191,9 @@ public class BackendDeveloperTests {
         RBT.insert(country5,country5.getGoldMedals());
         //testing to see if the RBT has the correct nodes in the correct location ideally
         //sorting integers
-        assertEquals(RBT.root,country1);
-        assertEquals(RBT.root.rightChild,country4);
-        assertEquals(RBT.root.leftChild,country3);
+        assertEquals(RBT.root.data,country1);
+        assertEquals(RBT.root.rightChild.data,country4);
+        assertEquals(RBT.root.leftChild.data,country3);
     }//end test 9
 
     /**
@@ -209,9 +213,9 @@ public class BackendDeveloperTests {
         RBT.insert(country5,country5.getName());
         //testing to see if the RBT has the correct nodes in the correct location ideally
         //sorting by Name by should be storing country objects
-        assertEquals(RBT.root,country2);
-        assertEquals(RBT.root.rightChild,country4);
-        assertEquals(RBT.root.leftChild,country1);
+        assertEquals(RBT.root.data,country2);
+        assertEquals(RBT.root.rightChild.data,country4);
+        assertEquals(RBT.root.leftChild.data,country1);
     }//end test 10
 
     public static void main(String[] args) {
