@@ -94,7 +94,7 @@ public class FrontendDeveloperTests {
    * Integration test with CountrySearcherBackend
    */
   @Test public void test6() {
-    CountrySearcherBackend backend = new CountrySearcherBackend();
+    CountrySearcherBackendFrontend backend = new CountrySearcherBackendFrontend();
     ConsoleOutputCapturer outputCapturer = new ConsoleOutputCapturer();
     // captures console output
     outputCapturer.start();
