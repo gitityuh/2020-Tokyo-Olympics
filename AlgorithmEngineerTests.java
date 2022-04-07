@@ -199,114 +199,42 @@ public class AlgorithmEngineerTests {
         //test remove black sib, null uncle, interior node
         RedBlackTree RBT = new RedBlackTree();
 
+
+        //Adding another 10 node, String > America
         RBT.insert(America, 10);
         RBT.insert(Australia,5);
         RBT.insert(Mexico,30);
         RBT.insert(Denmark,10);
 
 
-
+        //Denmark and America have same value, sorted by comparing Strings America and Denmark
         assertEquals("[ America: 10, Australia: 5, Mexico: 30, Denmark: 10 ]", RBT.toLevelOrderString());
         assertEquals("[ Australia, America, Denmark, Mexico ]", RBT.toInOrderString());
         assertEquals(0, RBT.root.rightChild.leftChild.blackHeight);
         assertEquals(1, RBT.root.leftChild.blackHeight);
+
+        //Adding another 10 node, String < America
+        AlgoEngrCountry Amer = new AlgoEngrCountry("Amer", 10);
+
+        //(not many countries have smaller has than america lol)
+        RBT.insert(Amer,10);
+
+        assertEquals("[ America: 10, Australia: 5, Mexico: 30, Amer: 10, Denmark: 10 ]", RBT.toLevelOrderString());
+        assertEquals("[ Australia, Amer, America, Denmark, Mexico ]", RBT.toInOrderString());
+
+        //Adding a final 10 node > America and > denmark and causing a rotation
+        AlgoEngrCountry Iran = new AlgoEngrCountry("Iran", 10);
+        RBT.insert(Iran,10);
+
+        assertEquals(RBT.root.leftChild.rightChild.data, Amer);
+        assertEquals(RBT.root.rightChild.leftChild.data, Denmark);
+
+        assertEquals(RBT.root.rightChild.rightChild.data, Mexico);
+
+        assertEquals("[ America: 10, Australia: 5, Iran: 10, Amer: 10, Denmark: 10, Mexico: 30 ]", RBT.toLevelOrderString());
+        assertEquals("[ Australia, Amer, America, Denmark, Iran, Mexico ]", RBT.toInOrderString());
+
     }
-    /*
-    @Test
-    void test4() {
-        //Single right rotation about root
-        int red = 0;
-        int black = 1;
-
-        AlgoEngrCountry france = new AlgoEngrCountry(4);
-        AlgoEngrCountry USA = new AlgoEngrCountry(10);
-        AlgoEngrCountry sweeden = new AlgoEngrCountry(6);
-
-
-        RedBlackTree RBT = new RedBlackTree();
-
-        RBT.insert(USA.getGoldMedals());
-        RBT.insert(sweeden.getGoldMedals());
-        RBT.insert(france.getGoldMedals());
-
-        String result = RBT.toLevelOrderString();
-
-        assertEquals("[ 6, 4, 8 ]", result);
-        assertEquals(red, RBT.root.leftChild.blackHeight);
-        assertEquals(red, RBT.root.rightChild.blackHeight);
-
-        //Single right rotation about GrandParent
-        RBT.insert(10);
-        RBT.insert(12);
-
-        result = RBT.toLevelOrderString();
-
-        assertEquals("[ 6, 4, 10, 8, 12 ]", result);
-        assertEquals(black, RBT.root.leftChild.blackHeight);
-        assertEquals(black, RBT.root.rightChild.blackHeight);
-        assertEquals(red, RBT.root.rightChild.leftChild.blackHeight);
-        assertEquals(red, RBT.root.rightChild.rightChild.blackHeight);
-
-        //Left Right Rotation
-        RBT.insert(2);
-        RBT.insert(3);
-
-        result = RBT.toLevelOrderString();
-        assertEquals("[ 6, 3, 10, 2, 4, 8, 12 ]", result);
-        assertEquals(black, RBT.root.leftChild.leftChild.blackHeight);
-        assertEquals(black, RBT.root.leftChild.rightChild.blackHeight);
-        assertEquals(red, RBT.root.leftChild.blackHeight);
-    }
-    void test5() {
-
-        int black = 1;
-        int red = 0;
-        //single rotate around root node test
-        {
-            RedBlackTree RBT = new RedBlackTree();
-            RBT.insert(5);
-            RBT.insert(8);
-
-            assertEquals(5, RBT.root.data);
-            assertEquals(black, RBT.root.blackHeight);
-            assertEquals(red, RBT.root.rightChild.blackHeight);
-
-            RBT.insert(10);
-
-            assertEquals(8, RBT.root.data);
-            assertEquals(red, RBT.root.leftChild.blackHeight);
-            assertEquals(red, RBT.root.rightChild.blackHeight);
-        }
-
-        //double rotate around root test
-        {
-            RedBlackTree RBT = new RedBlackTree();
-            RBT.insert(5);
-            RBT.insert(8);
-
-            RBT.insert(7);
-            assertEquals(7, RBT.root.data);
-            assertEquals(red, RBT.root.leftChild.blackHeight);
-            assertEquals(red, RBT.root.rightChild.blackHeight);
-        }
-        //adding to a non-root black parent
-        {
-            RedBlackTree RBT = new RedBlackTree();
-            RBT.insert(5);
-            RBT.insert(8);
-            RBT.insert(10);
-
-            //adding to red child
-            RBT.insert(12);
-            assertEquals(black, RBT.root.leftChild.blackHeight);
-            assertEquals(black, RBT.root.rightChild.blackHeight);
-            assertEquals(red, RBT.root.rightChild.rightChild.blackHeight);
-
-            //adding to black child
-            RBT.insert(2);
-            assertEquals(red, RBT.root.leftChild.leftChild.blackHeight);
-
-        }*/
 
     }
 
